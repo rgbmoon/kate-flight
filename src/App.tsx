@@ -3,7 +3,12 @@ import './App.css';
 
 function App() {
 
-  const apiUrl = '/method/users.get?user_id=210700286&v=5.52';
+  const appID = process.env.REACT_APP_VK_APP_ID;
+  const apiVer = process.env.REACT_APP_VK_APP_VER;
+  const apiKey = process.env.REACT_APP_VK_SERVICE_KEY;
+  const ownerID = process.env.REACT_APP_VK_OWNER_ID;
+
+  const apiUrl = `/method/wall.get?owner_id=-${ownerID}&count=1&access_token=${apiKey}&v=${apiVer}`;
 
   fetch(apiUrl,{
     method: 'GET'
@@ -20,7 +25,6 @@ function App() {
 
   return (
     <div className="App">
-      
     </div>
   );
 }
