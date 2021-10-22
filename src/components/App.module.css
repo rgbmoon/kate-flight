@@ -1,0 +1,6 @@
+@import-normalize;
+
+.app {
+  background-color: antiquewhite;
+  height: 100vh;
+}
