@@ -3,8 +3,7 @@ import './App.css';
 
 function App() {
 
-  const appID = process.env.REACT_APP_VK_APP_ID;
-  const apiVer = process.env.REACT_APP_VK_APP_VER;
+  const apiVer = process.env.REACT_APP_VK_API_VER;
   const apiKey = process.env.REACT_APP_VK_SERVICE_KEY;
   const ownerID = process.env.REACT_APP_VK_OWNER_ID;
 
@@ -16,12 +15,16 @@ function App() {
     .then(res => res.json())
     .then(
         (result) => {
-            console.log(result);
+          handleData(result);
         },
         (error) => {
             console.log("Ошибка при получении данных...")
         }
     )
+
+  function handleData(data: object) {
+    console.log('ШЫШ', data);
+  }
 
   return (
     <div className="App">
