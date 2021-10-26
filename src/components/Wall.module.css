@@ -6,11 +6,11 @@
 }
 
 .wallPost {
-  max-width: 49%;
-  min-width: 30%;
+  max-width: 55%;
+  min-width: 32%;
+  margin-bottom:1rem;
   box-sizing: border-box;
   height: 200px;
-  margin: 1%;
   border: 2px solid #3b3b3b;
   border-radius: 10px;
 }

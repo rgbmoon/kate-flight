@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './App.module.css';
 import Menu from './Menu';
 import Wall from './Wall';
+import Footer from './Footer';
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <div className={ styles.app }>
-      <div className={ styles.container }>
+      <div className={ `${styles.container} ${styles.content}` }>
         <h1 className={ styles.title }>Kate Flight</h1>
         <div className={ styles.modalText }> 
           {/* TODO: Сделапть модалку с приветственным текстом при первом посещении сайта. */}
@@ -45,6 +46,8 @@ function App() {
         <Wall />
 
       </div>
+
+      <Footer />
     </div>
   );
 }
