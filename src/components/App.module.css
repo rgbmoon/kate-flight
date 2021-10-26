@@ -1,6 +1,40 @@
-@import-normalize;
-
 .app {
-  background-color: antiquewhite;
   height: 100vh;
 }
+
+.title {
+  margin: 0;
+}
+
+
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: #ebebeb;
+}
+@media (max-width: 1200px) {
+  .container{
+    max-width: 992px;
+  }
+}
+@media (max-width: 992px) {
+  .container{
+    max-width: 768px;
+  }
+}
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 576px) {
+
+}
+
+
+
+
+
+
+
+
