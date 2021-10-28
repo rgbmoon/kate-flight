@@ -1,3 +1,8 @@
 .modalText {
   background-color: #ababab;
+  margin: 1em 0;
+}
+.modalText p {
+  font-size: 1em;
+  font-weight: 400;
 }

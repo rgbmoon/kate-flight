@@ -3,7 +3,12 @@
 }
 
 .title {
-  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 3.5em;
+  line-height: 1.1;
+  margin: 0.5em 0;
+  text-transform: uppercase;
 }
 
 .container{
@@ -29,7 +34,10 @@
   
 }
 @media (max-width: 576px) {
-
+  .container {
+    min-width: 319px;
+    padding: 0;
+  }
 }
 
 .content {
