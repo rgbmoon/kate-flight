@@ -3,6 +3,7 @@ import styles from './App.module.css';
 import Menu from './Menu';
 import Wall from './Wall';
 import Footer from './Footer';
+import ModalText from './ModalText';
 
 function App() {
 
@@ -34,13 +35,8 @@ function App() {
       <div className={ styles.container }>
         <div className={styles.content}>
           <h1 className={ styles.title }>Kate Flight</h1>
-          <div className={ styles.modalText }> 
-          {/* TODO: Сделапть модалку с приветственным текстом при первом посещении сайта. */}
-          <p>Привет, меня зовут Катерина. Рада видеть вас в своем уютном уголке интернета. <br/> 
-          Я занимаюсь индивидуальными фотосессиями в Петербурге уже более 5 лет. Бесконечно вдохновляюсь людьми и их уникальной красотой.<br />
-          Ниже можно подробно ознакомиться с моим творчеством, условиями съемок и прочей полезной информацией.
-          </p>
-          </div>
+          
+          <ModalText />
           
           <Menu />
           
