@@ -1,0 +1,6 @@
+.price {
+  background-color: rgb(209, 209, 209);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}

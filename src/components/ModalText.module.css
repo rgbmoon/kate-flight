@@ -1,0 +1,26 @@
+.modalText {
+  position: relative;
+  background-color: #ababab;
+  margin-bottom: 1em;
+}
+
+.modalText p {
+  font-size: 1em;
+  padding: 10px;
+}
+
+.modalTextInner{
+  padding-right: 30px;
+}
+
+.close {
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: left 15px bottom 15px no-repeat url('../img/close.png');
+  background-size: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}

@@ -1,6 +1,57 @@
-@import-normalize;
-
 .app {
-  background-color: antiquewhite;
-  height: 100vh;
+  height: 100%;
 }
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 3.5em;
+  line-height: 1.1;
+  margin: 0.5em 0;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  .title {
+    padding-left: 10px;
+  }
+}
+@media (max-width: 576px) {
+  .title {
+    font-size: 2.5em;
+    margin: 0.3em 0;
+  }
+}
+
+.container{
+  min-height: 100%;
+  display: flex;
+  flex-direction:column;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+@media (max-width: 1200px) {
+  .container{
+    max-width: 992px;
+  }
+}
+@media (max-width: 992px) {
+  .container{
+    max-width: 868px;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
+  }
+}
+@media (max-width: 576px) {
+  .container {
+    min-width: 319px;
+  }
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
