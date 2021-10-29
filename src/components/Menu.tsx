@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from './Menu.module.css';
 
-const MenuItem = (props) => {
+interface menuItem {
+  name: string;
+}
+
+const MenuItem = (props: menuItem) => {
 
   return (
     <a className={ styles.menuItem }>
@@ -17,7 +21,7 @@ function Menu() {
       <MenuItem name="События"/>
       <MenuItem name="Портфолио"/>
       <MenuItem name="Стоимость"/>
-      <MenuItem name="Обо мне"/>
+      <MenuItem name="Контакты"/>
     </div>
   );
 }

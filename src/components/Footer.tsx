@@ -10,12 +10,12 @@ function Footer() {
   return (
     <footer className={ styles.footer }>
       <div className={ styles.socialMediaBlock }>
-        <a href="https://www.instagram.com/katee_flight/" target="_blank">
+        <a href="https://www.instagram.com/katee_flight/" target="_blank" rel="noreferrer">
           <img src={logoInsta} alt="Instagram" />
         </a>
       </div>
       <div className={ styles.socialMediaBlock }>
-        <a href="https://vk.com/kateeeket" target="_blank">
+        <a href="https://vk.com/kateeeket" target="_blank" rel="noreferrer">
           <img src={logoVK} alt="VK" />
         </a>
       </div>

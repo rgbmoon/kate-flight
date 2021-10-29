@@ -5,12 +5,29 @@
 }
 
 .wallPost {
-  max-width: 55%;
-  min-width: 32%;
+  width: calc(50% - 0.5em);
   margin-bottom:1rem;
   box-sizing: border-box;
-  height: 200px;
+  height: 400px;
   background-color: rgb(209, 209, 209);
   border: 2px solid #3b3b3b;
   border-radius: 10px;
+  padding: 10px;
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 992px) {
+  
+}
+@media (max-width: 768px) {
+  .wallPost {
+    width: 100%;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+@media (max-width: 576px) {
+  
 }
