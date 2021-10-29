@@ -10,15 +10,22 @@
   margin: 0.5em 0;
   text-transform: uppercase;
 }
+@media (max-width: 576px) {
+  .title {
+    padding-left: 10px;
+  }
+  .title {
+    font-size: 2.5em;
+  }
+}
 
 .container{
   min-height: 100%;
   display: flex;
   flex-direction:column;
-  max-width: 1200px;
+  max-width: 1170px;
   margin: 0 auto;
   padding: 0 15px;
-  background-color: #ebebeb;
 }
 @media (max-width: 1200px) {
   .container{
@@ -43,9 +50,4 @@
 .content {
   flex: 1 0 auto;
 }
-
-
-
-
-
 
