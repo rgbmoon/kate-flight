@@ -10,12 +10,15 @@
   margin: 0.5em 0;
   text-transform: uppercase;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .title {
     padding-left: 10px;
   }
+}
+@media (max-width: 576px) {
   .title {
     font-size: 2.5em;
+    margin: 0.3em 0;
   }
 }
 
@@ -38,12 +41,13 @@
   }
 }
 @media (max-width: 768px) {
-  
+  .container {
+    padding: 0;
+  }
 }
 @media (max-width: 576px) {
   .container {
     min-width: 319px;
-    padding: 0;
   }
 }
 

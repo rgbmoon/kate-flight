@@ -5,6 +5,8 @@ import logoInsta from '../img/insta.png';
 
 function Footer() {
 
+  const currentYear = new Date()
+
   return (
     <footer className={ styles.footer }>
       <div className={ styles.socialMediaBlock }>
@@ -16,6 +18,9 @@ function Footer() {
         <a href="https://vk.com/kateeeket" target="_blank">
           <img src={logoVK} alt="VK" />
         </a>
+      </div>
+      <div className={ styles.footerText }>
+        <p>{currentYear.getFullYear()} Kate Flight</p>
       </div>
     </footer>
   );

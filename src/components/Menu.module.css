@@ -38,8 +38,8 @@
     padding: 0.8em;
     white-space: nowrap;
   }
-  .menuItem:last-child {
-    border-right: 2px solid #3b3b3b;
+  .menuItem:first-child{
+    border-left:0;
   }
 }
 @media (max-width: 576px) {
@@ -47,11 +47,5 @@
     padding: 0.5em;
     overflow: hidden;
     font-size: 0.9rem;
-  }
-  .menuItem:first-child{
-    border-left:0;
-  }
-  .menuItem:last-child{
-    border-right:0;
   }
 }
