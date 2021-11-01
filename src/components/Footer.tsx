@@ -5,17 +5,19 @@ import logoInsta from '../img/insta.png';
 
 function Footer() {
 
-  const currentYear = new Date()
+  const currentYear = new Date();
+  const instaLink = 'https://www.instagram.com/katee_flight/';
+  const VKLink = 'https://vk.com/kateeeket';
 
   return (
     <footer className={ styles.footer }>
       <div className={ styles.socialMediaBlock }>
-        <a href="https://www.instagram.com/katee_flight/" target="_blank" rel="noreferrer">
+        <a href={instaLink} target="_blank" rel="noreferrer">
           <img src={logoInsta} alt="Instagram" />
         </a>
       </div>
       <div className={ styles.socialMediaBlock }>
-        <a href="https://vk.com/kateeeket" target="_blank" rel="noreferrer">
+        <a href={VKLink} target="_blank" rel="noreferrer">
           <img src={logoVK} alt="VK" />
         </a>
       </div>

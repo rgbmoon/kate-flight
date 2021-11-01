@@ -8,9 +8,9 @@ interface menuItem {
 const MenuItem = (props: menuItem) => {
 
   return (
-    <a className={ styles.menuItem }>
+    <button className={ styles.menuItem }>
       { props.name }
-    </a>
+    </button>
   );
 }
 
