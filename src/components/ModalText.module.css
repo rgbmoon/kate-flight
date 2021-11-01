@@ -12,12 +12,23 @@
 .text {
   font-size: 1em;
   padding-right: 30px;
+  position: relative;
 }
 
 .textHidden {
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
+}
+
+.textHidden::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 15%;
+  height: 20px;
+  background: linear-gradient(270deg, #ababab 50%, transparent);
 }
 
 .close {
