@@ -2,15 +2,23 @@
   position: relative;
   background-color: #ababab;
   margin-bottom: 1em;
-}
-
-.modalText p {
-  font-size: 1em;
   padding: 10px;
 }
 
-.modalTextInner{
+.modalTextClosed{
+  cursor: pointer;
+}
+
+.text {
+  font-size: 1em;
   padding-right: 30px;
+}
+
+.textHidden {
+  height: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .close {
@@ -23,4 +31,8 @@
   top: 0;
   right: 0;
   cursor: pointer;
+}
+
+.open{
+  background-image: url('../img/arrow-down.png');
 }

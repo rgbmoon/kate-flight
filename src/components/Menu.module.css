@@ -7,12 +7,15 @@
 }
 
 .menuItem {
+  font-size: 1em;
+  background: none;
   display: block;
   min-width: 20%;
   padding: 1em;
   border: 2px solid #3b3b3b;
   border-radius: 10px;
   text-align: center;
+  cursor: pointer;
 }
 
 .menuItem:hover {
