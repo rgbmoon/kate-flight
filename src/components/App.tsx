@@ -1,9 +1,8 @@
 import React from 'react'
 import styles from './App.module.css'
-import Menu from './Menu'
-import Wall from './Wall'
 import Footer from './Footer'
 import ModalText from './ModalText'
+import Tabs from './Tabs'
 
 function App() {
 
@@ -36,11 +35,9 @@ function App() {
         <div className={styles.content}>
           <h1 className={styles.title}>Kate Flight</h1>
 
-          <ModalText/>
+          <ModalText />
 
-          <Menu />
-
-          <Wall />
+          <Tabs />
 
         </div>
 
