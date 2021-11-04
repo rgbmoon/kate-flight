@@ -18,8 +18,14 @@ ReactDOM.render(
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/price" element={<Price />} />
           <Route path="/contacts" element={<Contacts />} />
-          <Route path="*" element={<App />} // TODO Скорее всего это неправильный роутинг, разобраться что к чему попозже.
-          />
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />// TODO Сделать нормальную 404 и редиректы
         </Route>
       </Routes>
     </BrowserRouter>

@@ -19,14 +19,14 @@
   cursor: pointer;
 }
 
-/* .tabsButton:hover {
+.tabsButton:hover {
   background-color: cadetblue;
   transition: background-color 300ms ease-out;
 }
 
 .tabsButton:active, .tabsButton:focus {
   background-color: cadetblue;
-} */
+}
 .active {
   background-color: cadetblue;
 }

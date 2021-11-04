@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './App.module.css'
-import { Outlet } from 'react-router'
 import Footer from './Footer'
 import ModalText from './ModalText'
 import Tabs from './Tabs'
@@ -45,7 +44,6 @@ function App() {
         <Footer />
 
       </div>
-      <Outlet />
     </div>
   )
 }
