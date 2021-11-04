@@ -4,8 +4,10 @@ import Wall from './Wall'
 import Portfolio from './Portfolio'
 import Price from './Price'
 import Contacts from './Contacts'
+import { Link } from "react-router-dom"
 
 interface TabsButtonProps {
+  link: string
   title: string
   className: string
   onClick: () => void
@@ -14,16 +16,17 @@ interface TabsButtonProps {
 const TabsButton = (props: TabsButtonProps) => {
 
   return (
-    <button
-      type="button"
+    <Link
+      to={props.link}
       className={props.className}
       onClick={props.onClick}
     >
       {props.title}
-    </button>
+    </Link>
   )
 }
 
+// TODO - Переписать все это безобразие и добавить анимацию для переключения табов.
 function Tabs() {
   const [activeTab, setActiveTab] = useState('tab1')
 
@@ -46,21 +49,25 @@ function Tabs() {
 
       <div className={styles.tabsNav}>
         <TabsButton
+          link="/news"
           title="События"
           className={activeTab === 'tab1' ? `${styles.tabsButton} ${styles.active}` : styles.tabsButton}
           onClick={() => setActiveTab('tab1')}
         />
         <TabsButton
+          link="/portfolio"
           title="Портфолио"
           className={activeTab === 'tab2' ? `${styles.tabsButton} ${styles.active}` : styles.tabsButton}
           onClick={() => setActiveTab('tab2')}
         />
         <TabsButton
+          link="/price"
           title="Стоимость"
           className={activeTab === 'tab3' ? `${styles.tabsButton} ${styles.active}` : styles.tabsButton}
           onClick={() => setActiveTab('tab3')}
         />
         <TabsButton
+          link="/contacts"
           title="Контакты"
           className={activeTab === 'tab4' ? `${styles.tabsButton} ${styles.active}` : styles.tabsButton}
           onClick={() => setActiveTab('tab4')}
