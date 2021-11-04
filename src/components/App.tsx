@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import styles from './App.module.css'
 import Footer from './Footer'
 import ModalText from './ModalText'

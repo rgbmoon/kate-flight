@@ -17,18 +17,12 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  transition: background-color 300ms;
 }
 
-/* .tabsButton:hover {
-  background-color: cadetblue;
-  transition: background-color 300ms ease-out;
-}
-
-.tabsButton:active, .tabsButton:focus {
-  background-color: cadetblue;
-} */
 .active {
   background-color: cadetblue;
+  transition: background-color 300ms;
 }
 
 @media (max-width: 1200px) {

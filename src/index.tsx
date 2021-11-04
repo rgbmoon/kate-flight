@@ -9,24 +9,21 @@ import Portfolio from './components/Portfolio'
 import Price from './components/Price'
 import Contacts from './components/Contacts'
 
+// TODO Сделать нормальную 404 и редиректы
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/kate-flight" element={<App />} > //TODO Временное решение для GITHUB PAGES
-          <Route path="/kate-flight/news" element={<Wall />} />
-          <Route path="/kate-flight/portfolio" element={<Portfolio />} />
-          <Route path="/kate-flight/price" element={<Price />} />
-          <Route path="/kate-flight/contacts" element={<Contacts />} />
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: "1rem" }}>
-                <p>There's nothing here!</p>
-              </main>
-            }
-          />// TODO Сделать нормальную 404 и редиректы
+        <Route path="/" element={<App />} >
+          <Route path="/news" element={<Wall />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/price" element={<Price />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Route>
+        <Route
+            path="*"
+            element={<App />} // TODO Скорее всего так делать не стоит, надо прописать нормальные человеческие роуты позже.
+          />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

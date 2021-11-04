@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './Tabs.module.css'
 import { Outlet, NavLink } from "react-router-dom"
 interface TabsButtonProps {
@@ -34,19 +34,19 @@ function Tabs() {
       <div className={styles.tabsNav}>
         <TabsButton
           title="События"
-          link="/kate-flight/news"
+          link="/news"
         />
         <TabsButton
           title="Портфолио"
-          link="/kate-flight/portfolio"
+          link="/portfolio"
         />
         <TabsButton
           title="Стоимость"
-          link="/kate-flight/price"
+          link="/price"
         />
         <TabsButton
           title="Контакты"
-          link="/kate-flight/contacts"
+          link="/contacts"
         />
       </div>
 
