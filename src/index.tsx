@@ -13,11 +13,11 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} >
-          <Route path="/news" element={<Wall />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/price" element={<Price />} />
-          <Route path="/contacts" element={<Contacts />} />
+        <Route path="/kate-flight" element={<App />} > //TODO Временное решение для GITHUB PAGES
+          <Route path="/kate-flight/news" element={<Wall />} />
+          <Route path="/kate-flight/portfolio" element={<Portfolio />} />
+          <Route path="/kate-flight/price" element={<Price />} />
+          <Route path="/kate-flight/contacts" element={<Contacts />} />
           <Route
             path="*"
             element={
