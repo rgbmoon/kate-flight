@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './ModalText.module.css'
 import Collapse from '@mui/material/Collapse'
 
-
+// TODO Сделать так, чтобы окно сохраняло свое состояние после клика независимо от переходов по страницам, открытия в новых вкладках
 function ModalText() {
 
   const [isHide, setHide] = React.useState(false)

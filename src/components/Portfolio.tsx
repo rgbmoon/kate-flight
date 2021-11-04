@@ -5,7 +5,7 @@ function Portfolio() {
 
   return (
     <div className={ styles.portfolio }>
-      
+      Портфолио
     </div>
   );
 }

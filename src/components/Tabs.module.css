@@ -1,4 +1,4 @@
-.menu {
+.tabsNav {
   background-color: rgb(142, 210, 255);
   display: flex;
   flex-flow: row wrap;
@@ -6,7 +6,7 @@
   margin-bottom: 1em;
 }
 
-.menuItem {
+.tabsButton {
   font-size: 1em;
   background: none;
   display: block;
@@ -15,16 +15,14 @@
   border: 2px solid #3b3b3b;
   border-radius: 10px;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
+  transition: background-color 300ms;
 }
 
-.menuItem:hover {
+.active {
   background-color: cadetblue;
-  transition: background-color 300ms ease-out;
-}
-
-.menuItem:active, .menuItem:focus {
-  background-color: cadetblue;
+  transition: background-color 300ms;
 }
 
 @media (max-width: 1200px) {
@@ -34,21 +32,26 @@
   
 }
 @media (max-width: 768px) {
-  .menuItem{
+  .tabsButton{
     width: 25%;
     border-right: 0;
     border-radius: 0;
     padding: 0.8em;
     white-space: nowrap;
   }
-  .menuItem:first-child{
+  .tabsButton:first-child{
     border-left:0;
   }
 }
 @media (max-width: 576px) {
-  .menuItem{
+  .tabsButton{
     padding: 0.8em 0.5em;
     overflow: hidden;
     font-size: 0.9rem;
+  }
+}
+@media (max-width: 330px) {
+  .tabsButton{
+    padding: 0.8em 0;
   }
 }

@@ -5,6 +5,7 @@ function Price() {
 
   return (
     <div className={ styles.price }>
+      Цены
     </div>
   );
 }
