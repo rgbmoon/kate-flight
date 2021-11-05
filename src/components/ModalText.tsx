@@ -1,11 +1,28 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import styles from './ModalText.module.css'
 import Collapse from '@mui/material/Collapse'
 
-// TODO Сделать так, чтобы окно сохраняло свое состояние после клика независимо от переходов по страницам, открытия в новых вкладках
+
+/* Можно заменить sessionStorage на LocalStorage, если потребуется, 
+методы у них одинаковые */
+function getSessionStorageOrDefault(key: string, defaultValue: boolean) {
+  const stored = sessionStorage.getItem(key)
+  if (!stored) {
+    return defaultValue
+  }
+  return JSON.parse(stored)
+}
+
 function ModalText() {
 
-  const [isHide, setHide] = React.useState(false)
+  const [isHide, setHide] = useState(
+    getSessionStorageOrDefault('hide', false)
+  )
+
+  useEffect(() => {
+    sessionStorage.setItem('hide', JSON.stringify(isHide))
+  }, [isHide])
 
   const onClose = () => {
     setHide(!isHide)
