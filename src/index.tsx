@@ -33,7 +33,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} >
-          <Route path="/news" element={<Wall />} />
+          <Route path="/main" element={<Wall />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/price" element={<Price />} />
           <Route path="/contacts" element={<Contacts />} />
