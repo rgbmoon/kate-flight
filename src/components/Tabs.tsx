@@ -34,7 +34,7 @@ function Tabs() {
       <div className={styles.tabsNav}>
         <TabsButton
           title="События"
-          link="/news"
+          link="/main"
         />
         <TabsButton
           title="Портфолио"
