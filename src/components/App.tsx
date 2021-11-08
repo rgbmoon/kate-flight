@@ -5,28 +5,21 @@ import Tabs from './Tabs'
 
 function App() {
 
-  // const apiVer = process.env.REACT_APP_VK_API_VER
-  // const apiKey = process.env.REACT_APP_VK_SERVICE_KEY
-  // const ownerID = process.env.REACT_APP_VK_OWNER_ID
+  const url = '/.netlify/functions/vk'
 
-  // const apiUrl = `/method/wall.get?owner_id=-${ownerID}&count=1&access_token=${apiKey}&v=${apiVer}`
+  fetch(url, {
+    method: 'GET'
+  })
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log('ШЫШ', result)
+      },
+      (error) => {
+        console.log("Ошибка при получении данных...", error)
+      }
+    )
 
-  // fetch(apiUrl, {
-  //   method: 'GET'
-  // })
-  //   .then(res => res.json())
-  //   .then(
-  //     (result) => {
-  //       handleData(result)
-  //     },
-  //     (error) => {
-  //       console.log("Ошибка при получении данных...")
-  //     }
-  //   )
-
-  // function handleData(data: object) {
-  //   console.log('ШЫШ', data)
-  // }
 
   return (
     <div className={styles.app}>
