@@ -1,7 +1,7 @@
 import React from 'react'
 import Linkify from 'react-linkify'
 import styles from './WallPost.module.css'
-import Slider from "@farbenmeer/react-spring-slider"
+// import Slider from "@farbenmeer/react-spring-slider"
 
 interface wallPostProps {
   src: string
