@@ -2,6 +2,7 @@ import styles from './App.module.css'
 import Footer from './Footer'
 import ModalText from './ModalText'
 import Tabs from './Tabs'
+import { Outlet } from "react-router-dom"
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
           <ModalText />
 
           <Tabs />
+          
+          <Outlet />
 
         </div>
 

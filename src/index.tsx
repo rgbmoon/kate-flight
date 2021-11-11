@@ -9,20 +9,20 @@ import Price from './components/Price'
 import Contacts from './components/Contacts'
 
 
-// TODO Сделать нормальную 404 и редиректы
+// TODO Сделать редирект с главной на /home
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} >
-          <Route path="/main" element={<Wall />} />
+          <Route path="/home" element={<Wall />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/price" element={<Price />} />
           <Route path="/contacts" element={<Contacts />} />
         </Route>
         <Route
           path="*"
-          element={<App />} // TODO Скорее всего так делать не стоит, надо прописать нормальные человеческие роуты позже.
+          element={<App />}
         />
       </Routes>
     </BrowserRouter>
