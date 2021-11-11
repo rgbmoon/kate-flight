@@ -41,7 +41,7 @@ function Portfolio() {
     <div className={styles.portfolio}>
       {albumData.map((elem, i) => {
         return (<div className={styles.item} key={i}>
-          <img src={elem.toString()} />
+          <img src={elem.toString()} alt=""/>
         </div>)
       })}
     </div>
