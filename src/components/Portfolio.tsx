@@ -35,7 +35,7 @@ function Portfolio() {
     fetchData();
   }, [])
 
-  console.log(albumData)
+  // console.log(albumData)
 
   return (
     <div className={styles.porfolio}>

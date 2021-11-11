@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Linkify from 'react-linkify'
 import styles from './Wall.module.css'
+import WallPost from './WallPost'
 import { Item } from '../types/typesWall'
 
 function Wall() {
@@ -44,10 +45,12 @@ function Wall() {
     <div className={styles.wall}>
       {wallData.map((data, key) => {
         return (
-          <div key={key} className={styles.wallPost}>
-            <img src={data.attachments.toString()} className={styles.wallImg} alt="" />
-            <p><Linkify>{data.text}</Linkify></p>
-          </div>)
+          <WallPost
+            key={key}
+            src={data.attachments.toString()}
+            text={data.text}
+          />
+        )
       })}
     </div>
   )
