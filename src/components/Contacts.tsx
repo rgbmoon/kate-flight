@@ -5,7 +5,7 @@ function Contacts() {
 
   return (
     <div className={ styles.contacts }>
-      Контакты
+      Здесь будет статичная страница
     </div>
   );
 }
