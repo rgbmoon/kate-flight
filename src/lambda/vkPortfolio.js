@@ -6,7 +6,7 @@ const REACT_APP_VK_API_VER = process.env.REACT_APP_VK_API_VER
 
 export async function handler(event, context) {
 
-  const API_WALL_ENDPOINT = `https://api.vk.com/method/photos.get?owner_id=-${REACT_APP_VK_OWNER_ID}&album_id=277311524&count=20&access_token=${REACT_APP_VK_SERVICE_KEY}&v=${REACT_APP_VK_API_VER}`
+  const API_WALL_ENDPOINT = `https://api.vk.com/method/photos.get?owner_id=-${REACT_APP_VK_OWNER_ID}&album_id=277311524&rev=1&count=20&access_token=${REACT_APP_VK_SERVICE_KEY}&v=${REACT_APP_VK_API_VER}`
 
   try {
     const response = await axios.get(API_WALL_ENDPOINT, { headers: { Accept: "application/json" } })

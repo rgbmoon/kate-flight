@@ -19,7 +19,7 @@ function Portfolio() {
       const data = await response.json()
 
       const items = await data.response.items.map((elem: Item) => {
-        return elem.sizes[8].url
+        return elem.sizes[4].url
       })
 
       setAlbumData(items)
@@ -38,7 +38,7 @@ function Portfolio() {
   console.log(albumData)
 
   return (
-    <div className={styles.portfolio}>
+    <div className={styles.porfolio}>
       {albumData.map((elem, i) => {
         return (<div className={styles.item} key={i}>
           <img src={elem.toString()} alt=""/>
