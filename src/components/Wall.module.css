@@ -5,20 +5,22 @@
 }
 
 .wallPost {
-  width: calc(50% - 0.5em);
-  margin-bottom:1rem;
+  width: calc(33.333% - 0.25em);
   box-sizing: border-box;
+  margin-bottom: 0.5em;
   /* height: 400px; */
   background-color: rgb(209, 209, 209);
   border: 2px solid #3b3b3b;
   border-radius: 10px;
-  padding: 10px;
+  overflow:hidden;
 }
 @media (max-width: 1200px) {
   
 }
 @media (max-width: 992px) {
-  
+  .wallPost {
+    width: calc(50% - 0.25em);
+  }
 }
 @media (max-width: 768px) {
   .wallPost {
@@ -34,19 +36,28 @@
 
 .wallPost p {
   white-space: pre-line;
+  font-size: 0.9em;
+  word-wrap: break-word;
+  padding: 0.5em;
+}
+
+.wallPost p a {
+  color: #009ee5;
+  transition: color 100ms;
+}
+.wallPost p a:hover {
+  color: #7ac1e2;
+  transition: color 200ms;
 }
 
 .wallImg{
   display: block;
   /* width: calc(50% - 0.25em); */
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
 }
 @media (max-width: 768px) {
   .wallImg{
     width: 100%;
     border-radius: 0;
-    margin-bottom: 10px;
   }
 }
