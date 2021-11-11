@@ -5,7 +5,7 @@ function Price() {
 
   return (
     <div className={ styles.price }>
-      Цены
+      Здесь будет статичная инфа о ценах на съемку.
     </div>
   );
 }

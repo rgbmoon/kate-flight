@@ -1,9 +1,15 @@
 .tabsNav {
-  background-color: rgb(142, 210, 255);
+  background-color: #f5cac3;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   margin-bottom: 1em;
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .tabsNav {
+    border-radius: 0;
+  }
 }
 
 .tabsButton {
@@ -21,7 +27,7 @@
 }
 
 .active {
-  background-color: cadetblue;
+  background-color: #f28482;
   transition: background-color 300ms;
 }
 
