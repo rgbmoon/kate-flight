@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Linkify from 'react-linkify'
 import styles from './Wall.module.css'
 import WallPost from './WallPost'
 import { Item } from '../types/typesWall'
