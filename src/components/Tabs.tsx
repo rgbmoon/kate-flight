@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Tabs.module.css'
-import { Outlet, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 interface TabsButtonProps {
   link: string
   title: string
@@ -34,7 +34,7 @@ function Tabs() {
       <div className={styles.tabsNav}>
         <TabsButton
           title="События"
-          link="/main"
+          link="/home"
         />
         <TabsButton
           title="Портфолио"
@@ -50,7 +50,7 @@ function Tabs() {
         />
       </div>
 
-      <Outlet />
+      
 
     </React.Fragment>
   )
