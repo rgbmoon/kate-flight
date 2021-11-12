@@ -4,6 +4,14 @@ import ModalText from './ModalText'
 import Tabs from './Tabs'
 import { Outlet } from "react-router-dom"
 
+/*
+TODO 
+В целом по сайту осталось:
+1) Дизайн
+2) Ленивая загрузка данных
+3) Остальные тудушки
+*/
+
 function App() {
 
   return (
