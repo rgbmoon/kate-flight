@@ -25,7 +25,7 @@ const TabsButton = (props: TabsButtonProps) => {
   )
 }
 
-// TODO - Добавить анимацию для переключения табов.
+
 function Tabs() {
 
   return (
