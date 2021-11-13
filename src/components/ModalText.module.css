@@ -1,13 +1,14 @@
 .modalText {
   position: relative;
-  background-color: #ababab;
-  margin-bottom: 1em;
-  padding: 10px;
-  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  text-align: center;
 }
 @media (max-width: 768px) {
   .modalText {
-    border-radius: 0;
+    text-align: left;
+    border-top: 1px solid #ff8d8b33;
+    border-bottom: 1px solid #ff8d8b33;
   }
 }
 
@@ -16,7 +17,8 @@
 }
 
 .text {
-  font-size: 1em;
+  font-size: 14px;
+  line-height: 19px;
   padding-right: 30px;
   position: relative;
 }
@@ -35,7 +37,7 @@
   width: 15%;
   height: 20px;
   background: rgb(171,171,171);
-  background: linear-gradient(90deg, rgba(171,171,171,0) 0%, rgba(171,171,171,0.5) 32%, rgba(171,171,171,1) 93%);
+  background: linear-gradient(90deg, rgba(171,171,171,0) 0%, rgba(255,255,255,0.5) 32%, rgba(255,255,255,1) 93%);
 }
 @media (max-width: 992px) {
   .textHidden::after {
@@ -44,6 +46,7 @@
 }
 
 .close {
+  display: none;
   width: 40px;
   height: 40px;
   color: #fff;
@@ -53,6 +56,11 @@
   top: 0;
   right: 0;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .close {
+    display: block;
+  }
 }
 
 .open{
