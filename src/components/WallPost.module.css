@@ -117,6 +117,8 @@
   opacity: 0.5;
   cursor: pointer;
 }
+/* TODO Наверное кнопки на мобиле лучше оставить,
+скролл по тачу у этого слайдера так себе */
 @media (max-width: 576px) {
   .arrow{
     display: none;

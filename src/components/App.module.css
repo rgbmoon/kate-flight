@@ -3,23 +3,26 @@
 }
 
 .title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
-  font-size: 3.5em;
+  font-size: 66px;
   line-height: 1.1;
-  margin: 0.5em 0;
-  text-transform: uppercase;
+  text-align: center;
+  margin: 13px 0;
+}
+.title span {
+  font-weight: 300;
+  color: #ff8d8b;
+  transition: color 500ms;
 }
 @media (max-width: 768px) {
   .title {
-    padding-left: 10px;
+    padding-left: 15px;
+    text-align: left;
   }
 }
 @media (max-width: 576px) {
-  .title {
-    font-size: 2.5em;
-    margin: 0.3em 0;
-  }
+  
 }
 
 .container{

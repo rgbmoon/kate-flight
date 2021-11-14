@@ -12,14 +12,14 @@ const TabsButton = (props: TabsButtonProps) => {
     <NavLink
       to={props.link}
       className={({ isActive }) =>
-          [
-            styles.tabsButton,
-            isActive ? styles.active : null
-          ]
-            .filter(Boolean)
-            .join(" ")
-        }
-        >
+        [
+          styles.tabsButton,
+          isActive ? styles.active : null
+        ]
+          .filter(Boolean)
+          .join(" ")
+      }
+    >
       {props.title}
     </NavLink >
   )
@@ -29,30 +29,24 @@ const TabsButton = (props: TabsButtonProps) => {
 function Tabs() {
 
   return (
-    <React.Fragment>
-
-      <div className={styles.tabsNav}>
-        <TabsButton
-          title="События"
-          link="/home"
-        />
-        <TabsButton
-          title="Портфолио"
-          link="/portfolio"
-        />
-        <TabsButton
-          title="Стоимость"
-          link="/price"
-        />
-        <TabsButton
-          title="Контакты"
-          link="/contacts"
-        />
-      </div>
-
-      
-
-    </React.Fragment>
+    <div className={styles.tabsWrapper}>
+      <TabsButton
+        title="События"
+        link="/home"
+      />
+      <TabsButton
+        title="Портфолио"
+        link="/portfolio"
+      />
+      <TabsButton
+        title="Стоимость"
+        link="/price"
+      />
+      <TabsButton
+        title="Контакты"
+        link="/contacts"
+      />
+    </div>
   )
 }
 
