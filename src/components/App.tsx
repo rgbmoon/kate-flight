@@ -1,6 +1,6 @@
 import styles from './App.module.css'
 import ModalText from './ModalText'
-import Tabs from './Tabs'
+import MyTabs from './Tabs'
 import { Outlet } from "react-router-dom"
 
 /*
@@ -23,7 +23,7 @@ function App() {
 
           <ModalText />
 
-          <Tabs />
+          <MyTabs />
 
           <Outlet />
 
