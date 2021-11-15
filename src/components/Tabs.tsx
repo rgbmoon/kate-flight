@@ -25,7 +25,7 @@ const TabsButton = (props: TabsButtonProps) => {
   )
 }
 
-
+// TODO Сделать автоматический скролл табов
 function Tabs() {
 
   return (
