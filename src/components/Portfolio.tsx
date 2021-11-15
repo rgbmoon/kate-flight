@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Portfolio.module.css';
 import { Item } from '../types/typesPortfolio'
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
 
 
 
