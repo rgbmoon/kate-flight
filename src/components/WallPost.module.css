@@ -113,6 +113,8 @@
   opacity: 0.5;
   opacity: 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
 }
 @media (max-width: 768px) {
   .arrow {

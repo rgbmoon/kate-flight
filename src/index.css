@@ -20,7 +20,7 @@ html, body, #root {
   height: 100%;
 }
 
-h1, p, div, span, a, button {
+h1, h3, p, div, span, a, button {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   color: #000000;
