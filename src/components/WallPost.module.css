@@ -9,7 +9,7 @@
 
 @media (max-width: 992px) {
   .wallPost {
-    width: calc(50% - 0.25em);
+    width: calc(50% - 10px);
   }
 }
 @media (max-width: 768px) {
