@@ -1,14 +1,16 @@
 .modalText {
   position: relative;
-  margin-bottom: 20px;
-  padding: 10px 15px;
+  margin-bottom: 40px;
+  padding: 0 15px;
   text-align: center;
 }
 @media (max-width: 768px) {
   .modalText {
     text-align: left;
+    margin-bottom: 15px;
     border-top: 1px solid #ff8d8b33;
     border-bottom: 1px solid #ff8d8b33;
+    padding: 10px 15px;
   }
 }
 
@@ -17,10 +19,18 @@
 }
 
 .text {
-  font-size: 14px;
-  line-height: 19px;
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 300;
   padding-right: 30px;
   position: relative;
+}
+@media (max-width: 768px) {
+  .text {
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 400;
+  }
 }
 
 .textHidden {
@@ -50,7 +60,7 @@
   width: 40px;
   height: 40px;
   color: #fff;
-  background: left 15px bottom 15px no-repeat url('../img/close.png');
+  background: left 10px bottom 10px no-repeat url('../img/close-1.png');
   background-size: 15px;
   position: absolute;
   top: 0;
@@ -74,5 +84,5 @@
 }
 
 .open{
-  background-image: url('../img/arrow-down.png');
+  background-image: url('../img/arrow-down-1.png');
 }

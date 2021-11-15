@@ -1,12 +1,13 @@
 .tabsWrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   overflow: scroll;
 }
 @media (max-width: 768px) {
   .tabsWrapper {
     justify-content: flex-start;
+    margin-bottom: 15px;
   }
 }
 .tabsWrapper::-webkit-scrollbar {
@@ -16,11 +17,11 @@
 .tabsButton {
   position: relative;
   font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 21px;
-  line-height: 30px;
+  font-size: 30px;
+  line-height: 32px;
   text-transform: none;
   text-decoration: none;
-  padding: 0 15px;
+  padding: 0 45px 0 15px;
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-font-smoothing: inherit;
@@ -47,6 +48,15 @@ tabsButton::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
+
+@media (max-width: 768px) {
+  .tabsButton {
+    font-size: 21px;
+    line-height: 30px;
+    padding: 0 15px;
+  }
+}
+
 
 
 .active {

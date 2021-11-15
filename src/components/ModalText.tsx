@@ -32,7 +32,7 @@ function ModalText() {
     <div
       className={isHide ? `${styles.modalText} ${styles.modalTextClosed}` : styles.modalText}
       onClick={isHide ? onClose : undefined}>
-      <Collapse in={!isHide} collapsedSize={16}>
+      <Collapse in={!isHide} collapsedSize={20}>
         <p className={isHide ? `${styles.textHidden} ${styles.text}` : styles.text}>Привет, меня зовут Катерина. Рада видеть вас в своем уютном уголке интернета.
           Я занимаюсь индивидуальными фотосессиями в Петербурге уже более 6 лет. Бесконечно вдохновляюсь людьми и их уникальной красотой. <br /><br />
           Ниже можно подробно ознакомиться с моим творчеством, условиями съемок и прочей полезной информацией.

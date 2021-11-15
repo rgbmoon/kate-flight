@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Portfolio.module.css';
 import { Item } from '../types/typesPortfolio'
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+
+
+
 
 function Portfolio() {
 
@@ -35,9 +40,9 @@ function Portfolio() {
     fetchData();
   }, [])
 
-  // console.log(albumData)
-
   return (
+    //TODO однажды сверстать это дело красиво для десктопа, на манер ImageList mui
+    //TODO Сделать выгрузку фоток через srcset или picture
     <div className={styles.porfolio}>
       {albumData.map((elem, i) => {
         return (<div className={styles.item} key={i}>

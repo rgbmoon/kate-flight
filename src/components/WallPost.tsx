@@ -24,7 +24,7 @@ const BulletComponent = ({
 }: BulletComponentProps) => (
   <li
     className={styles.bullet}
-    style={{ opacity: isActive ? "0.3" : "0.7" }}
+    style={{ backgroundColor: isActive ? "#4D4D4D" : "#fff" }}
     onClick={onClick}
   />
 );
@@ -49,6 +49,7 @@ const ArrowComponent = ({
 function WallPost(props: wallPostProps) {
 
   return (
+    <>
     <div className={styles.wallPost}>
       <div className={styles.slider}>
         {/* TODO Подтянуть все фото с поста в слайдер
@@ -66,6 +67,8 @@ function WallPost(props: wallPostProps) {
       </div>
       <p><Linkify>{props.text}</Linkify></p>
     </div>
+    <div className={styles.after}></div>
+    </>
   )
 }
 
