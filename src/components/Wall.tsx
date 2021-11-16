@@ -41,7 +41,6 @@ function Wall() {
     fetchData();
   }, [])
 
-  console.log(wallData)
   return (
     <div className={styles.wall}>
       {wallData.map((data, key) => {
