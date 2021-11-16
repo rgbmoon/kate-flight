@@ -19,10 +19,12 @@ function Wall() {
 
       const data = await response.json()
 
-      const items = await data.response.items.map(({ attachments, text }: Item) => {
+      const items = await data.response.items.map(({ attachments, text }: Item, key: any) => {
         return {
-          attachments: attachments[0].photo.sizes[attachments[0].photo.sizes.length - 1].url,
-          text: text
+          attachments: attachments.map(photo => {
+            return photo.photo //TODO Не уверен, что это правильный парсинг JSON, узнать как сделать все по уму
+          }),
+          text: text,
         }
       })
 
@@ -39,14 +41,14 @@ function Wall() {
     fetchData();
   }, [])
 
-  // console.log(wallData)
+  console.log(wallData)
   return (
     <div className={styles.wall}>
       {wallData.map((data, key) => {
         return (
           <WallPost
             key={key}
-            src={data.attachments.toString()}
+            src={data.attachments}
             text={data.text}
           />
         )

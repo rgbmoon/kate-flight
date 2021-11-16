@@ -28,6 +28,14 @@ export interface Item {
 export interface Attachment {
   type: string
   photo: Photo
+  sizes: Sizes[]
+}
+
+export interface Sizes {
+  url: string
+  height: number
+  type: string
+  width: number
 }
 
 export interface Photo {
@@ -69,3 +77,5 @@ export interface Views {
 export interface Donut {
   is_donut: boolean
 }
+
+// TODO С типами для принимаемых данный какая то задница, надо разобраться что к чему, почистить лишнее и оптимизировать
