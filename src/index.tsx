@@ -14,8 +14,6 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* TODO Сделал редирект с главной на /home
-        Потестить перед релизом, все ли правильно работает */}
         <Route
           path="/"
           element={<Navigate to="/home" />}

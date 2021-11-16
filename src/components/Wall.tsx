@@ -22,7 +22,7 @@ function Wall() {
       const items = await data.response.items.map(({ attachments, text }: Item, key: any) => {
         return {
           attachments: attachments.map(photo => {
-            return photo.photo //TODO Не уверен, что это правильный парсинг JSON, узнать как сделать все по уму
+            return photo.photo
           }),
           text: text,
         }

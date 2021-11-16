@@ -21,8 +21,8 @@ function Portfolio() {
 
       const data = await response.json()
 
-      const items = await data.response.items.map((elem: Item) => {
-        return elem.sizes[4].url
+      const items = await data.response.items.map((elem: Item[]) => {
+        return elem
       })
 
       setAlbumData(items)
@@ -40,11 +40,26 @@ function Portfolio() {
 
   return (
     //TODO однажды сверстать это дело красиво для десктопа, на манер ImageList mui
-    //TODO Сделать выгрузку фоток через srcset или picture
     <div className={styles.porfolio}>
-      {albumData.map((elem, i) => {
+      {albumData.map((photo, i) => {
         return (<div className={styles.item} key={i}>
-          <img src={elem.toString()} alt=""/>
+          <img
+            srcSet={
+              `${photo.sizes[0].url} ${photo.sizes[0].width}w,
+              ${photo.sizes[1].url} ${photo.sizes[1].width}w,
+              ${photo.sizes[2].url} ${photo.sizes[2].width}w,
+              ${photo.sizes[3].url} ${photo.sizes[3].width}w,
+              ${photo.sizes[4].url} ${photo.sizes[4].width}w,
+              ${photo.sizes[5].url} ${photo.sizes[5].width}w,
+              ${photo.sizes[6].url} ${photo.sizes[6].width}w,
+              ${photo.sizes[7].url} ${photo.sizes[7].width}w,
+              ${photo.sizes[8].url} ${photo.sizes[8].width}w,
+              ${photo.sizes[9].url} ${photo.sizes[9].width}w,`
+            }
+            src={photo.sizes[4].url}
+            alt="Портфолио"
+            loading="lazy"
+          />
         </div>)
       })}
     </div>
