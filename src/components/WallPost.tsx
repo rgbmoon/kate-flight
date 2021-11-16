@@ -2,9 +2,10 @@ import React from 'react'
 import Linkify from 'react-linkify'
 import styles from './WallPost.module.css'
 import Slider from "@farbenmeer/react-spring-slider"
+import { Attachment } from '../types/typesWall'
 
 interface wallPostProps {
-  src: string
+  src: Attachment[]
   text: string
 }
 
@@ -48,26 +49,39 @@ const ArrowComponent = ({
 
 function WallPost(props: wallPostProps) {
 
+  console.log(props.src[0].sizes[9])
   return (
     <>
-    <div className={styles.wallPost}>
-      <div className={styles.slider}>
-        {/* TODO Подтянуть все фото с поста в слайдер
-                  сделать через Picture */}
-        <Slider
-          hasBullets
-          hasArrows
-          BulletComponent={BulletComponent}
-          ArrowComponent={ArrowComponent}
-        >
-          <div><img src={props.src} className={styles.wallImg} alt="" /></div>
-          <div><img src={props.src} className={styles.wallImg} alt="" /></div>
-          <div><img src={props.src} className={styles.wallImg} alt="" /></div>
-        </Slider>
+      <div className={styles.wallPost}>
+        <div className={styles.slider}>
+          {/* TODO На мобиле плохо листаются фотки из-за слайдера, нужно отключить 
+          перелистывание по касанию, либо другой слайдер взять */}
+          <Slider
+            hasBullets
+            hasArrows
+            BulletComponent={BulletComponent}
+            ArrowComponent={ArrowComponent}
+          >
+            {props.src.map((photo, key) => {
+
+              return (
+                <div key={key}>
+                {/* TODO ПОдумать над реализацией srcset */}
+                  <img 
+                  src={photo.sizes[8].url} 
+                  className={styles.wallImg} 
+                  alt="" 
+                  loading="lazy"
+                  />
+                </div>
+              )
+            })}
+
+          </Slider>
+        </div>
+        <p><Linkify>{props.text}</Linkify></p>
       </div>
-      <p><Linkify>{props.text}</Linkify></p>
-    </div>
-    <div className={styles.after}></div>
+      <div className={styles.after}></div>
     </>
   )
 }
