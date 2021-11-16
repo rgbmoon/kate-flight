@@ -56,18 +56,6 @@ function Portfolio() {
               ${photo.sizes[8].url} ${photo.sizes[8].width}w,
               ${photo.sizes[9].url} ${photo.sizes[9].width}w,`
             }
-            sizes={
-              `(max-width: ${photo.sizes[0].width}px) ${photo.sizes[0].width}px,
-              (max-width: ${photo.sizes[1].width}px) ${photo.sizes[1].width}px,
-              (max-width: ${photo.sizes[2].width}px) ${photo.sizes[2].width}px,
-              (max-width: ${photo.sizes[3].width}px) ${photo.sizes[3].width}px,
-              (max-width: ${photo.sizes[4].width}px) ${photo.sizes[4].width}px,
-              (max-width: ${photo.sizes[5].width}px) ${photo.sizes[5].width}px,
-              (max-width: ${photo.sizes[6].width}px) ${photo.sizes[6].width}px,
-              (max-width: ${photo.sizes[7].width}px) ${photo.sizes[7].width}px,
-              (max-width: ${photo.sizes[8].width}px) ${photo.sizes[8].width}px,
-              (max-width: ${photo.sizes[9].width}px) ${photo.sizes[9].width}px,`
-            }
             src={photo.sizes[4].url}
             alt="Портфолио"
             loading="lazy"
