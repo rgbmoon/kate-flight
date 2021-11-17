@@ -73,6 +73,7 @@
 
 .slider {
   height: 35vh;
+  position: relative;
 }
 @media (max-width: 1200px) {
   .slider {
@@ -96,29 +97,61 @@
   }
 }
 
+.bullets{
+  width:100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 15px 0;
+}
+
 .bullet{
-  display: inline-block;
+  display: block;
   width: 25px;
   height: 2px;
   background-color: #ffffff;
   margin: 0 2.5px;
 }
+.active{
+  background-color: #4D4D4D;
+}
 
-.arrow{
+
+.arrows {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  position: absolute;
+  top: 48%;
+  padding: 0 25px;
+}
+
+.arrow {
   border-bottom: 2px solid #f0efeb;
   border-left: 2px solid #f0efeb;
   padding: 15px;
-  margin-right: 23px;
-  margin-left: 23px;
-  opacity: 0.5;
   opacity: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   background-color: transparent;
 }
+.arrowLeft {
+  transform: rotate(45deg);
+}
+.arrowRight {
+  transform: rotate(225deg);
+}
+.disabled {
+  visibility: hidden;
+  cursor: default;
+}
+
 @media (max-width: 768px) {
   .arrow {
-    opacity: 1;
+    display:none;
   }
 }
 .wallPost:hover .arrow{
