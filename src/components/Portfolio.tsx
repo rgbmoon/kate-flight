@@ -1,13 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Portfolio.module.css';
 import { Item } from '../types/typesPortfolio'
+import Stack from '@mui/material/Stack'
+import CircularProgress from '@mui/material/CircularProgress'
 
-
-
+const Preloader = () => {
+  return (
+    <Stack
+      sx={{
+        justifyContent: 'center',
+        marginTop: '20vh',
+      }}
+      spacing={4}
+      direction="row">
+      <CircularProgress style={{'color': '#ff8d8b'}} />
+    </Stack>
+  );
+}
 
 function Portfolio() {
 
   const [albumData, setAlbumData] = useState<Item[]>([])
+  const [preload, setPreload] = useState(true)
 
   const fetchData = async () => {
 
@@ -26,6 +40,7 @@ function Portfolio() {
       })
 
       setAlbumData(items)
+      setPreload(false)
     }
 
     catch (error: any) {
@@ -40,6 +55,7 @@ function Portfolio() {
 
   return (
     //TODO Оформить компонент красиво, например как ImageList mui
+    <>
     <div className={styles.porfolio}>
       {albumData.map((photo, i) => {
         return (<div className={styles.item} key={i}>
@@ -63,6 +79,8 @@ function Portfolio() {
         </div>)
       })}
     </div>
+    {preload ? <Preloader /> : null}
+    </>
   );
 }
 

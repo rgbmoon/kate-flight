@@ -8,7 +8,6 @@ interface wallPostProps {
   text: string
 }
 
-/* TODO сделать буллеты */
 function WallPost(props: wallPostProps) {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = props.src.length
