@@ -21,7 +21,7 @@ export const FailMessage = () => {
   return (
     <div className={styles.fail}>
       <p>Произошла ошибка при загрузке данных.</p>
-      <p><a href="" onClick={() => window.location.reload()}>Попробуем</a> еще раз?</p>
+      <p><button onClick={() => window.location.reload()}>Попробуем</button> еще раз?</p>
     </div>
   )
 }
