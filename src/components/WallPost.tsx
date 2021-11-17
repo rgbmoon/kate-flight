@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Linkify from 'react-linkify'
 import styles from './WallPost.module.css'
 import { Attachment } from '../types/typesWall'
@@ -8,17 +8,37 @@ interface wallPostProps {
   text: string
 }
 
+/* TODO сделать стрелки и буллеты */
 function WallPost(props: wallPostProps) {
+  const [activeStep, setActiveStep] = useState(0);
+  const maxSteps = props.src.length
+
+  const handleNext = () => {
+    if (activeStep < maxSteps - 1) {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1)
+    }
+  }
+
+  const handleBack = () => {
+    if (activeStep > 0) {
+      setActiveStep((prevActiveStep) => prevActiveStep - 1)
+    }
+  }
+
+  const handleStepChange = (step: number) => {
+    setActiveStep(step)
+  }
+
   return (
     <>
       <div className={styles.wallPost}>
         <div className={styles.slider}>
-          {/* TODO На мобиле плохо листаются фотки из-за слайдера, нужно отключить 
-          перелистывание по касанию, либо другой слайдер взять */}
           <SwipeableViews
-          hysteresis={0.6} // Сила, с которой нужно свайпать
-          enableMouseEvents
-          resistance
+            hysteresis={0.6} // Сила, с которой нужно тянуть слайд для свайпа
+            enableMouseEvents
+            resistance
+            index={activeStep}
+            onChangeIndex={handleStepChange}
           >
             {props.src.map((photo, key) => {
               return (
@@ -44,6 +64,24 @@ function WallPost(props: wallPostProps) {
               )
             })}
           </SwipeableViews>
+          <div className={styles.arrows}>
+            <div
+              onClick={handleBack}
+              className={`
+                ${styles.arrow} 
+                ${styles.arrowLeft} 
+                ${activeStep === 0 ? styles.disabled : null}
+              `}
+            ></div>
+            <div
+              onClick={handleNext}
+              className={`
+                ${styles.arrow} 
+                ${styles.arrowRight}
+                ${activeStep === maxSteps - 1 ? styles.disabled : null}
+              `}
+            ></div>
+          </div>
         </div>
         <p><Linkify>{props.text}</Linkify></p>
       </div>
