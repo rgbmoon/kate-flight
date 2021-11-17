@@ -11,9 +11,12 @@
   font-weight: 300;
 }
 
-.fail a, .fail a:hover, .fail a:active, .fail a:focus {
+.fail button, .fail button:hover, .fail button:active, .fail button:focus {
   text-decoration: none;
+  font-size: 19px;
+  line-height: 24px;
   color: #f28482;
+  padding: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-font-smoothing: inherit;
@@ -27,7 +30,7 @@
 }
 
 @media(max-width: 768px) {
-  .fail p, .fail a {
+  .fail p, .fail button {
     font-size: 14px;
     line-height: 19px;
     font-weight: 400;
