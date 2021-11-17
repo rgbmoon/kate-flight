@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import Linkify from 'react-linkify'
 import styles from './WallPost.module.css'
 import { Attachment } from '../types/typesWall'
-import SwipeableViews from 'react-swipeable-views';
+import SwipeableViews from 'react-swipeable-views'
 interface wallPostProps {
   src: Attachment[]
   text: string
 }
 
-/* TODO сделать стрелки и буллеты */
+/* TODO сделать буллеты */
 function WallPost(props: wallPostProps) {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = props.src.length
@@ -33,6 +33,7 @@ function WallPost(props: wallPostProps) {
     <>
       <div className={styles.wallPost}>
         <div className={styles.slider}>
+
           <SwipeableViews
             hysteresis={0.6} // Сила, с которой нужно тянуть слайд для свайпа
             enableMouseEvents
@@ -64,6 +65,7 @@ function WallPost(props: wallPostProps) {
               )
             })}
           </SwipeableViews>
+
           <div className={styles.arrows}>
             <div
               onClick={handleBack}
@@ -82,8 +84,21 @@ function WallPost(props: wallPostProps) {
               `}
             ></div>
           </div>
+
+          <div className={styles.bullets}>
+            {props.src.map((pos, key) => (
+              <div
+                key={key}
+                className={key === activeStep ?
+                  `${styles.bullet} ${styles.active}` : `${styles.bullet}`}
+              />
+            ))}
+          </div>
+
         </div>
+
         <p><Linkify>{props.text}</Linkify></p>
+
       </div>
       <div className={styles.after}></div>
     </>

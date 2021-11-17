@@ -97,13 +97,27 @@
   }
 }
 
+.bullets{
+  width:100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 15px 0;
+}
+
 .bullet{
-  display: inline-block;
+  display: block;
   width: 25px;
   height: 2px;
   background-color: #ffffff;
   margin: 0 2.5px;
 }
+.active{
+  background-color: #4D4D4D;
+}
+
 
 .arrows {
   display: flex;
