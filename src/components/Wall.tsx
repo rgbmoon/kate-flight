@@ -2,27 +2,14 @@ import React, { useState, useEffect } from 'react'
 import styles from './Wall.module.css'
 import WallPost from './WallPost'
 import { Item } from '../types/typesWall'
-import Stack from '@mui/material/Stack'
-import CircularProgress from '@mui/material/CircularProgress'
+import { Preloader, FailMessage } from './Utils'
 
-const Preloader = () => {
-  return (
-    <Stack
-      sx={{
-        justifyContent: 'center',
-        marginTop: '20vh',
-      }}
-      spacing={4}
-      direction="row">
-      <CircularProgress style={{'color': '#ff8d8b'}} />
-    </Stack>
-  );
-}
 
 function Wall() {
 
   const [wallData, setWallData] = useState<Item[]>([])
   const [preload, setPreload] = useState(true)
+  const [fetchFailed, setFetchFailed] = useState(false)
 
   const fetchData = async () => {
 
@@ -30,11 +17,9 @@ function Wall() {
       const response = await fetch('/.netlify/functions/vkWall')
 
       if (!response.ok) {
-        console.error('Ошибка получения данных', response.status)
+        setFetchFailed(true)
         return
       }
-
-
 
       const data = await response.json()
 
@@ -52,8 +37,7 @@ function Wall() {
     }
 
     catch (error: any) {
-      console.error('Ошибка получения данных', error.message)
-      //TODO не забыть сделать заглущку для страницы
+      setFetchFailed(true)
     }
   }
 
@@ -75,6 +59,7 @@ function Wall() {
         })}
       </div>
       {preload ? <Preloader /> : null}
+      {fetchFailed ? <FailMessage /> : null}
     </>
   )
 }
