@@ -40,7 +40,7 @@ function Portfolio() {
   }, [])
 
   return (
-    //TODO Оформить компонент красиво, например как ImageList mui
+    //TODO Оформить компонент красиво на десктопе, например как ImageList mui
     <>
       <div className={styles.porfolio}>
         {albumData.map((photo, i) => {

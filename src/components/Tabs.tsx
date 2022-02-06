@@ -25,7 +25,7 @@ const TabsButton = (props: TabsButtonProps) => {
   )
 }
 
-// TODO Сделать автоматический скролл табов
+// TODO Сделать градиент справа как на Collapsе элементе.
 function Tabs() {
 
   return (
