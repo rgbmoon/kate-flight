@@ -1,71 +1,85 @@
 import React, { useEffect, useState } from 'react';
+import { AlbumResponse, ItemsEntity } from '../types/typesPortfolio';
 import styles from './Portfolio.module.css';
-import { Item } from '../types/typesPortfolio'
 import { Preloader, FailMessage } from './Utils'
 
 
 function Portfolio() {
 
-  const [albumData, setAlbumData] = useState<Item[]>([])
-  const [preload, setPreload] = useState(true)
+  const [albumData, setAlbumData] = useState<ItemsEntity[]>([])
+  const [totalPhotos, setTotalPhotos] = useState(0)
+  const [fetching, setFetching] = useState(true)
   const [fetchFailed, setFetchFailed] = useState(false)
+  const [offset, setOffset] = useState(0)
 
-  const fetchData = async () => {
+  const photosPerRequest = 5
 
-    try {
-      const response = await fetch('/.netlify/functions/vkPortfolio')
-
-      if (!response.ok) {
-        setFetchFailed(true)
-        return
-      }
-
-      const data = await response.json()
-
-      const items = await data.response.items.map((elem: Item[]) => {
-        return elem
+  const fetchData = () => {
+    fetch(`/.netlify/functions/vkPortfolio?count=${photosPerRequest}&offset=${offset}`)
+      .then(response => {
+        if (!response.ok) {
+          setFetchFailed(true)
+          throw new Error(response.status.toString());
+        }
+        return response.json()
       })
+      .then((data: AlbumResponse) => {
+        setAlbumData([...albumData, ...data.response.items!])
+        console.log(data)
+        setTotalPhotos(data.response.count)
+        setOffset(offset + photosPerRequest)
+      })
+      .catch(error => console.error('fetch fail:', error.message))
+      .finally(() => setFetching(false))
+  }
 
-      setAlbumData(items)
-      setPreload(false)
-    }
-
-    catch (error: any) {
-      setFetchFailed(true)
+  const scrollHandler = (e: any) => {
+    if((e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) &&
+    albumData.length <= totalPhotos) {
+      setFetching(true)
     }
   }
 
   useEffect(() => {
-    fetchData();
-  }, [])
+    document.addEventListener('scroll', scrollHandler)
+    return function() {
+      document.removeEventListener('scroll', scrollHandler)
+    }
+  })
+
+  useEffect(() => {
+    if (fetching) {
+      fetchData()
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetching])
 
   return (
-    //TODO Оформить компонент красиво на десктопе, например как ImageList mui
+    //TODO Оформить компонент красиво на десктопе и на мобиле, например как ImageList mui
     <>
       <div className={styles.porfolio}>
         {albumData.map((photo, i) => {
           return (<div className={styles.item} key={i}>
             <img
               srcSet={
-                `${photo.sizes[0]?.url} ${photo.sizes[0]?.width}w,
-              ${photo.sizes[1]?.url} ${photo.sizes[1]?.width}w,
-              ${photo.sizes[2]?.url} ${photo.sizes[2]?.width}w,
-              ${photo.sizes[3]?.url} ${photo.sizes[3]?.width}w,
-              ${photo.sizes[4]?.url} ${photo.sizes[4]?.width}w,
-              ${photo.sizes[5]?.url} ${photo.sizes[5]?.width}w,
-              ${photo.sizes[6]?.url} ${photo.sizes[6]?.width}w,
-              ${photo.sizes[7]?.url} ${photo.sizes[7]?.width}w,
-              ${photo.sizes[8]?.url} ${photo.sizes[8]?.width}w,
-              ${photo.sizes[9]?.url} ${photo.sizes[9]?.width}w,`
+                `${photo?.sizes ? photo.sizes[0].url : ''} ${photo?.sizes ? photo.sizes[0]?.width : ''}w,
+                ${photo?.sizes ? photo.sizes[1].url : ''} ${photo?.sizes ? photo.sizes[1]?.width : ''}w,
+                ${photo?.sizes ? photo.sizes[2].url : ''} ${photo?.sizes ? photo.sizes[2]?.width : ''}w,
+                ${photo?.sizes ? photo.sizes[3].url : ''} ${photo?.sizes ? photo.sizes[3]?.width : ''}w,
+                ${photo?.sizes ? photo.sizes[4].url : ''} ${photo?.sizes ? photo.sizes[4]?.width : ''}w,
+                ${photo?.sizes ? photo.sizes[5].url : ''} ${photo?.sizes ? photo.sizes[5]?.width : ''}w,
+                ${photo?.sizes ? photo.sizes[6].url : ''} ${photo?.sizes ? photo.sizes[6]?.width : ''}w,
+                ${photo?.sizes ? photo.sizes[7].url : ''} ${photo?.sizes ? photo.sizes[7]?.width : ''}w,
+                ${photo?.sizes ? photo.sizes[8].url : ''} ${photo?.sizes ? photo.sizes[8]?.width : ''}w,`
               }
-              src={photo.sizes[4]?.url}
+              src={photo?.sizes ? photo?.sizes[8]?.url : ''}
               alt="Портфолио"
               loading="lazy"
             />
           </div>)
         })}
       </div>
-      {preload ? <Preloader /> : null}
+      {fetching ? <Preloader /> : null}
       {fetchFailed ? <FailMessage /> : null}
     </>
   );

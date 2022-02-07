@@ -8,7 +8,8 @@ export const Preloader = () => {
     <Stack
       sx={{
         justifyContent: 'center',
-        marginTop: '20vh',
+        marginTop: '10vh',
+        marginBottom: '10vh',
       }}
       spacing={4}
       direction="row">
