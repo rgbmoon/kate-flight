@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import Linkify from 'react-linkify'
 import styles from './WallPost.module.css'
-import { Attachment } from '../types/typesWall'
 import SwipeableViews from 'react-swipeable-views'
+import { AttachmentsEntity } from '../types/typesWall';
 interface wallPostProps {
-  src: Attachment[]
+  src: AttachmentsEntity[]
   text: string
 }
 
-function WallPost(props: wallPostProps) {
+function WallPost({src, text}: wallPostProps) {
   const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = props.src.length
+  const maxSteps = src?.length
 
   const handleNext = () => {
     if (activeStep < maxSteps - 1) {
@@ -40,26 +40,29 @@ function WallPost(props: wallPostProps) {
             index={activeStep}
             onChangeIndex={handleStepChange}
           >
-            {props.src.map((photo, key) => {
+            {src?.map(({ photo }, key) => {
+
               return (
                 <div key={key}>
-                  <img
-                    srcSet={
-                      `${photo.sizes[0].url} ${photo.sizes[0].width}w,
-                      ${photo.sizes[1].url} ${photo.sizes[1].width}w,
-                      ${photo.sizes[2].url} ${photo.sizes[2].width}w,
-                      ${photo.sizes[3].url} ${photo.sizes[3].width}w,
-                      ${photo.sizes[4].url} ${photo.sizes[4].width}w,
-                      ${photo.sizes[5].url} ${photo.sizes[5].width}w,
-                      ${photo.sizes[6].url} ${photo.sizes[6].width}w,
-                      ${photo.sizes[7].url} ${photo.sizes[7].width}w,
-                      ${photo.sizes[8].url} ${photo.sizes[8].width}w,`
-                    }
-                    src={photo.sizes[8].url}
-                    className={styles.wallImg}
-                    alt="Последние события"
-                    loading="lazy"
-                  />
+                  {photo && (
+                    <img
+                      srcSet={
+                        `${photo?.sizes ? photo.sizes[0].url : ''} ${photo?.sizes ? photo.sizes[0]?.width : ''}w,
+                        ${photo?.sizes ? photo.sizes[1].url : ''} ${photo?.sizes ? photo.sizes[1]?.width : ''}w,
+                        ${photo?.sizes ? photo.sizes[2].url : ''} ${photo?.sizes ? photo.sizes[2]?.width : ''}w,
+                        ${photo?.sizes ? photo.sizes[3].url : ''} ${photo?.sizes ? photo.sizes[3]?.width : ''}w,
+                        ${photo?.sizes ? photo.sizes[4].url : ''} ${photo?.sizes ? photo.sizes[4]?.width : ''}w,
+                        ${photo?.sizes ? photo.sizes[5].url : ''} ${photo?.sizes ? photo.sizes[5]?.width : ''}w,
+                        ${photo?.sizes ? photo.sizes[6].url : ''} ${photo?.sizes ? photo.sizes[6]?.width : ''}w,
+                        ${photo?.sizes ? photo.sizes[7].url : ''} ${photo?.sizes ? photo.sizes[7]?.width : ''}w,
+                        ${photo?.sizes ? photo.sizes[8].url : ''} ${photo?.sizes ? photo.sizes[8]?.width : ''}w,`
+                      }
+                      src={photo?.sizes ? photo?.sizes[8]?.url : ''}
+                      className={styles.wallImg}
+                      alt="Последние события"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
               )
             })}
@@ -85,7 +88,7 @@ function WallPost(props: wallPostProps) {
           </div>
 
           <div className={styles.bullets}>
-            {props.src.map((pos, key) => (
+            {src?.map((pos, key) => (
               <div
                 key={key}
                 className={key === activeStep ?
@@ -96,7 +99,7 @@ function WallPost(props: wallPostProps) {
 
         </div>
 
-        <p><Linkify>{props.text}</Linkify></p>
+        <p><Linkify>{text}</Linkify></p>
 
       </div>
       <div className={styles.after}></div>

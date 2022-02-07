@@ -6,8 +6,8 @@ import Collapse from '@mui/material/Collapse'
 
 /* Можно заменить sessionStorage на LocalStorage, если потребуется, 
 методы у них одинаковые */
-function getSessionStorageOrDefault(key: string, defaultValue: boolean) {
-  const stored = sessionStorage.getItem(key)
+function getLocalStorageOrDefault(key: string, defaultValue: boolean) {
+  const stored = localStorage.getItem(key)
   if (!stored) {
     return defaultValue
   }
@@ -17,11 +17,11 @@ function getSessionStorageOrDefault(key: string, defaultValue: boolean) {
 function ModalText() {
 
   const [isHide, setHide] = useState(
-    getSessionStorageOrDefault('hide', false)
+    getLocalStorageOrDefault('hide', false)
   )
 
   useEffect(() => {
-    sessionStorage.setItem('hide', JSON.stringify(isHide))
+    localStorage.setItem('hide', JSON.stringify(isHide))
   }, [isHide])
 
   const onClose = () => {
@@ -29,20 +29,21 @@ function ModalText() {
   }
 
   return (
-    <div
-      className={isHide ? `${styles.modalText} ${styles.modalTextClosed}` : styles.modalText}
-      onClick={isHide ? onClose : undefined}>
-      <Collapse in={!isHide} collapsedSize={20}>
-        <p className={isHide ? `${styles.textHidden} ${styles.text}` : styles.text}>Привет, меня зовут Катерина. Рада видеть вас в своем уютном уголке интернета.
-          Я занимаюсь индивидуальными фотосессиями в Петербурге уже более 6 лет. Бесконечно вдохновляюсь людьми и их уникальной красотой. <br /><br />
-          Ниже можно подробно ознакомиться с моим творчеством, условиями съемок и прочей полезной информацией.
-        </p>
+      <Collapse in={!isHide} collapsedSize={0}>
+        <div
+          className={isHide ? `${styles.modalText} ${styles.modalTextClosed}` : styles.modalText}
+          onClick={isHide ? onClose : undefined}>
+          
+            <p className={isHide ? `${styles.textHidden} ${styles.text}` : styles.text}>Привет, меня зовут Катерина. Рада видеть вас в своей галерее.<br /><br />
+              Я занимаюсь индивидуальными фотосессиями в Петербурге уже более 6 лет. Бесконечно вдохновляюсь людьми и их уникальной красотой. <br /><br />
+              Ниже можно подробно ознакомиться с моим творчеством, условиями съемок и прочей полезной информацией.
+            </p>
+          
+          <span
+            className={isHide ? `${styles.close} ${styles.open}` : styles.close}
+            onClick={onClose} />
+        </div>
       </Collapse>
-      <span
-        className={isHide ? `${styles.close} ${styles.open}` : styles.close}
-        onClick={onClose}></span>
-
-    </div>
   )
 }
 
