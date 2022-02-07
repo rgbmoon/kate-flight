@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react'
 import styles from './Wall.module.css'
 import WallPost from './WallPost'
 import { ItemsEntity, WallResponse } from '../types/typesWall'
-import { Preloader } from './Utils'
+import { FailMessage, Preloader } from './Utils'
 
-// TODO: Сделать проверку на пустой массив. Сделать проверку на конец записей
 // TODO: Заглушки, если нет фото в посте
-// TODO: Поправить сетку карточек постов. Пока что местами криво при подгрузке данных.
+// TODO: Поправить сетку карточек постов на десктопе. Пока что местами криво при подгрузке данных.
 
 function Wall() {
 
@@ -14,33 +13,32 @@ function Wall() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [totalPosts, setTotalPosts] = useState(0)
   const [fetching, setFetching] = useState(true)
-  // const [fetchFailed, setFetchFailed] = useState(false)
+  const [fetchFailed, setFetchFailed] = useState(false)
   const [offset, setOffset] = useState(0)
 
   const postsPerRequest = 5
 
-  useEffect(() => {
-    if (fetching) {
-      fetch(`/.netlify/functions/vkWall?count=${postsPerRequest}&offset=${offset}`)
+  const fetchData = () => {
+    fetch(`/.netlify/functions/vkWall?count=${postsPerRequest}&offset=${offset}`)
       .then(response => {
         if (!response.ok) {
+          setFetchFailed(true)
           throw new Error(response.status.toString());
         }
         return response.json()
       })
       .then((data: WallResponse) => {
-        setTotalPosts(data.response.count)
         setWallData([...wallData, ...data.response.items!])
+        setTotalPosts(data.response.count)
         setOffset(offset + postsPerRequest)
       })
       .catch(error => console.error('fetch fail:', error.message))
       .finally(() => setFetching(false))
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetching])
+  }
 
   const scrollHandler = (e: any) => {
-    if((e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) && wallData.length < 20) {
+    if((e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) &&
+      wallData.length < totalPosts) {
       setFetching(true)
     }
   }
@@ -50,8 +48,14 @@ function Wall() {
     return function() {
       document.removeEventListener('scroll', scrollHandler)
     }
+  })
+
+  useEffect(() => {
+    if (fetching) {
+      fetchData()
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [fetching])
 
   return (
     <>
@@ -67,7 +71,7 @@ function Wall() {
         })}
       </div>
       {fetching ? <Preloader /> : null}
-      {/* {fetchFailed ? <FailMessage /> : null} */}
+      {fetchFailed ? <FailMessage /> : null}
     </>
   )
 }
