@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import styles from './ModalText.module.css'
 import Collapse from '@mui/material/Collapse'
+import CloseIcon from '@mui/icons-material/Close';
 
 
 /* Можно заменить sessionStorage на LocalStorage, если потребуется, 
@@ -31,8 +32,9 @@ function ModalText() {
   return (
       <Collapse in={!isHide} collapsedSize={0}>
         <div
-          className={isHide ? `${styles.modalText} ${styles.modalTextClosed}` : styles.modalText}
-          onClick={isHide ? onClose : undefined}>
+          className={styles.modalText}
+          onClick={onClose}>
+            <CloseIcon className={styles.close}/>
           
             <p className={isHide ? `${styles.textHidden} ${styles.text}` : styles.text}>Привет, меня зовут Катерина. Рада видеть вас в своей галерее.<br /><br />
               Я занимаюсь индивидуальными фотосессиями в Петербурге уже более 6 лет. Бесконечно вдохновляюсь людьми и их уникальной красотой. <br /><br />

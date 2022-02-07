@@ -5,7 +5,7 @@ import { ItemsEntity, WallResponse } from '../types/typesWall'
 import { FailMessage, Preloader } from './Utils'
 
 // TODO: Заглушки, если нет фото в посте
-// TODO: Поправить сетку карточек постов. Пока что местами криво при подгрузке данных.
+// TODO: Поправить сетку карточек постов на десктопе. Пока что местами криво при подгрузке данных.
 
 function Wall() {
 

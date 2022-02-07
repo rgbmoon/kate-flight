@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom"
 TODO 
 В целом по сайту осталось:
 
-2) React Helmet для меты.
+2) Мета теги по страницам. 
 3) Заюзать MUI для иконок. Навернуть всяких красивых транзишнов.
 4) Отрефакторить приложение. 
 
@@ -36,4 +36,3 @@ function App() {
 }
 
 export default App
-

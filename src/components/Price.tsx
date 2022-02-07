@@ -8,24 +8,24 @@ function Price() {
       <div className={styles.block}>
         <div className={styles.titleWrapper}>
           <div className={styles.title}>
-            Фотосет
+            Фотосет индивидуальный
           </div>
           <div className={styles.price}>
-            12 000 руб.
+            от 9 000 руб.
           </div>
         </div>
-        <p className={styles.text}>Привет, меня зовут Катерина. Рада видеть вас в своем уютном уголке интернета. Я занимаюсь индивидуальными фотосессиями в Петербурге уже более 6 лет. Бесконечно вдохновляюсь людьми и их уникальной красотой.</p>
+        <p className={styles.text}>Подробные условия в моей группе ВК и в личных сообщениях.</p>
       </div>
       <div className={styles.block}>
         <div className={styles.titleWrapper}>
           <div className={styles.title}>
-            Фотосет
+            Фотосет групповой
           </div>
           <div className={styles.price}>
-            12 000 руб.
+            от 12 000 руб.
           </div>
         </div>
-        <p className={styles.text}>Привет, меня зовут Катерина. Рада видеть вас в своем уютном уголке интернета. Я занимаюсь индивидуальными фотосессиями в Петербурге уже более 6 лет. Бесконечно вдохновляюсь людьми и их уникальной красотой.</p>
+        <p className={styles.text}>Подробные условия в моей группе ВК и в личных сообщениях.</p>
       </div>
     </div>
   );
