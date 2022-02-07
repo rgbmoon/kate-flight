@@ -11,6 +11,7 @@ import { Preloader } from './Utils'
 function Wall() {
 
   const [wallData, setWallData] = useState<ItemsEntity[]>([])
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [totalPosts, setTotalPosts] = useState(0)
   const [fetching, setFetching] = useState(true)
   // const [fetchFailed, setFetchFailed] = useState(false)
@@ -49,6 +50,7 @@ function Wall() {
     return function() {
       document.removeEventListener('scroll', scrollHandler)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
