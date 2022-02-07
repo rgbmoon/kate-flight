@@ -1,8 +1,17 @@
 # Kate Flight
 
-Making personal web app for my girlfriend.
+Photographer portfolio app for my wife.
+Production domain - https://kate-flight.ru/
 
-You can see medium builds with latest commits here: https://kate-flight.netlify.app/
+## Technologies used
+
+1) Pure React
+2) Typescript
+3) MUI for styling and some icons
+4) CSS modules(it was mistake, now I prefer SASS modules)
+5) Netlify deploy and lambda functions for safety data fetching
+6) React routrer 6
+
 ## Install
 
 1) npm install
@@ -17,13 +26,4 @@ You can see medium builds with latest commits here: https://kate-flight.netlify.
 
 ## Deploy
 
-Netlify ci/cd binded to main btanch. Deploy will start automatically.
-
-## Technologies used
-
-1) Pure React
-2) Typescript
-3) MUI for styling and some icons
-4) CSS modules(it was mistake, now i prefer SASS modules)
-5) Netlify deploy and lambda functions for safety data fetching
-6) React routrer 6
+Netlify ci/cd binded to main branch. Deploy will start automatically after merge to main.

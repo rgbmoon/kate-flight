@@ -1,65 +1,71 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Wall.module.css'
 import WallPost from './WallPost'
-import { Item } from '../types/typesWall'
-import { Preloader, FailMessage } from './Utils'
+import { ItemsEntity, WallResponse } from '../types/typesWall'
+import { Preloader } from './Utils'
 
+// TODO: Сделать проверку на пустой массив. Сделать проверку на конец записей
+// TODO: Заглушки, если нет фото в посте
+// TODO: Поправить сетку карточек постов. Пока что местами криво при подгрузке данных.
 
 function Wall() {
 
-  const [wallData, setWallData] = useState<Item[]>([])
-  const [preload, setPreload] = useState(true)
-  const [fetchFailed, setFetchFailed] = useState(false)
+  const [wallData, setWallData] = useState<ItemsEntity[]>([])
+  const [totalPosts, setTotalPosts] = useState(0)
+  const [fetching, setFetching] = useState(true)
+  // const [fetchFailed, setFetchFailed] = useState(false)
+  const [offset, setOffset] = useState(0)
 
-  const fetchData = async () => {
+  const postsPerRequest = 5
 
-    try {
-      const response = await fetch('/.netlify/functions/vkWall')
-
-      if (!response.ok) {
-        setFetchFailed(true)
-        return
-      }
-
-      const data = await response.json()
-
-      const items = await data.response.items.map(({ attachments, text }: Item, key: any) => {
-        return {
-          attachments: attachments.map(photo => {
-            return photo.photo
-          }),
-          text: text,
+  useEffect(() => {
+    if (fetching) {
+      fetch(`/.netlify/functions/vkWall?count=${postsPerRequest}&offset=${offset}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status.toString());
         }
+        return response.json()
       })
-
-      setWallData(items)
-      setPreload(false)
+      .then((data: WallResponse) => {
+        setTotalPosts(data.response.count)
+        setWallData([...wallData, ...data.response.items!])
+        setOffset(offset + postsPerRequest)
+      })
+      .catch(error => console.error('fetch fail:', error.message))
+      .finally(() => setFetching(false))
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetching])
 
-    catch (error: any) {
-      setFetchFailed(true)
+  const scrollHandler = (e: any) => {
+    if((e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) && wallData.length < 20) {
+      setFetching(true)
     }
   }
 
   useEffect(() => {
-    fetchData();
+    document.addEventListener('scroll', scrollHandler)
+    return function() {
+      document.removeEventListener('scroll', scrollHandler)
+    }
   }, [])
 
   return (
     <>
       <div className={styles.wall}>
-        {wallData.map((data, key) => {
+        {wallData.map((data) => {
           return (
             <WallPost
-              key={key}
-              src={data.attachments}
+              key={data.id}
+              src={data.attachments!}
               text={data.text}
             />
           )
         })}
       </div>
-      {preload ? <Preloader /> : null}
-      {fetchFailed ? <FailMessage /> : null}
+      {fetching ? <Preloader /> : null}
+      {/* {fetchFailed ? <FailMessage /> : null} */}
     </>
   )
 }
