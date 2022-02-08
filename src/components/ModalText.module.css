@@ -1,8 +1,9 @@
 .modalText {
   position: relative;
   margin-bottom: 40px;
-  padding: 0 15px;
+  padding: 10px 15px;
   text-align: center;
+  border: 1px solid #ff8d8b33;
 }
 @media (max-width: 768px) {
   .modalText {

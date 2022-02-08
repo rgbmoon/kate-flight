@@ -1,3 +1,4 @@
+import { Fade } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { AlbumResponse, ItemsEntity } from '../types/typesPortfolio';
 import styles from './Portfolio.module.css';
@@ -59,24 +60,28 @@ function Portfolio() {
     <>
       <div className={styles.porfolio}>
         {albumData.map((photo, i) => {
-          return (<div className={styles.item} key={i}>
-            <img
-              srcSet={
-                `${photo?.sizes ? photo.sizes[0].url : ''} ${photo?.sizes ? photo.sizes[0]?.width : ''}w,
-                ${photo?.sizes ? photo.sizes[1].url : ''} ${photo?.sizes ? photo.sizes[1]?.width : ''}w,
-                ${photo?.sizes ? photo.sizes[2].url : ''} ${photo?.sizes ? photo.sizes[2]?.width : ''}w,
-                ${photo?.sizes ? photo.sizes[3].url : ''} ${photo?.sizes ? photo.sizes[3]?.width : ''}w,
-                ${photo?.sizes ? photo.sizes[4].url : ''} ${photo?.sizes ? photo.sizes[4]?.width : ''}w,
-                ${photo?.sizes ? photo.sizes[5].url : ''} ${photo?.sizes ? photo.sizes[5]?.width : ''}w,
-                ${photo?.sizes ? photo.sizes[6].url : ''} ${photo?.sizes ? photo.sizes[6]?.width : ''}w,
-                ${photo?.sizes ? photo.sizes[7].url : ''} ${photo?.sizes ? photo.sizes[7]?.width : ''}w,
-                ${photo?.sizes ? photo.sizes[8].url : ''} ${photo?.sizes ? photo.sizes[8]?.width : ''}w,`
-              }
-              src={photo?.sizes ? photo?.sizes[8]?.url : ''}
-              alt="Портфолио"
-              loading="lazy"
-            />
-          </div>)
+          return (
+            <Fade in timeout={1000}>
+              <div className={styles.item} key={i}>
+                <img
+                  srcSet={
+                    `${photo?.sizes ? photo.sizes[0].url : ''} ${photo?.sizes ? photo.sizes[0]?.width : ''}w,
+                    ${photo?.sizes ? photo.sizes[1].url : ''} ${photo?.sizes ? photo.sizes[1]?.width : ''}w,
+                    ${photo?.sizes ? photo.sizes[2].url : ''} ${photo?.sizes ? photo.sizes[2]?.width : ''}w,
+                    ${photo?.sizes ? photo.sizes[3].url : ''} ${photo?.sizes ? photo.sizes[3]?.width : ''}w,
+                    ${photo?.sizes ? photo.sizes[4].url : ''} ${photo?.sizes ? photo.sizes[4]?.width : ''}w,
+                    ${photo?.sizes ? photo.sizes[5].url : ''} ${photo?.sizes ? photo.sizes[5]?.width : ''}w,
+                    ${photo?.sizes ? photo.sizes[6].url : ''} ${photo?.sizes ? photo.sizes[6]?.width : ''}w,
+                    ${photo?.sizes ? photo.sizes[7].url : ''} ${photo?.sizes ? photo.sizes[7]?.width : ''}w,
+                    ${photo?.sizes ? photo.sizes[8].url : ''} ${photo?.sizes ? photo.sizes[8]?.width : ''}w,`
+                  }
+                  src={photo?.sizes ? photo?.sizes[8]?.url : ''}
+                  alt="Портфолио"
+                  loading="lazy"
+                />
+              </div>
+            </Fade>
+          )
         })}
       </div>
       {fetching ? <Preloader /> : null}

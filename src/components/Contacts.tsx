@@ -1,19 +1,22 @@
+import { Fade } from '@mui/material';
 import React from 'react';
 import styles from './Contacts.module.css';
 
 function Contacts() {
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.block}>
-        <div className={styles.titleWrapper}>
-          <div className={styles.title}>
-            Обо мне
+    <Fade in timeout={1000}>
+      <div className={styles.wrapper}>
+        <div className={styles.block}>
+          <div className={styles.titleWrapper}>
+            <div className={styles.title}>
+              Обо мне
+            </div>
           </div>
+          <p className={styles.text}>Галерея неопределенности ожидает посетителей</p>
         </div>
-        <p className={styles.text}>Галерея неопределенности ожидает посетителей</p>
       </div>
-    </div>
+    </Fade>
   );
 }
 

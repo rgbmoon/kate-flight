@@ -3,6 +3,7 @@ import Linkify from 'react-linkify'
 import styles from './WallPost.module.css'
 import SwipeableViews from 'react-swipeable-views'
 import { AttachmentsEntity } from '../types/typesWall';
+import { Fade } from '@mui/material';
 interface wallPostProps {
   src: AttachmentsEntity[]
   text: string
@@ -30,6 +31,8 @@ function WallPost({src, text}: wallPostProps) {
 
   return (
     <>
+    <Fade in timeout={1000}>
+      <div className={styles.container}>
       <div className={styles.wallPost}>
         <div className={styles.slider}>
 
@@ -101,8 +104,10 @@ function WallPost({src, text}: wallPostProps) {
 
         <p><Linkify>{text}</Linkify></p>
 
+        </div>
+        <div className={styles.after}></div>
       </div>
-      <div className={styles.after}></div>
+    </Fade>
     </>
   )
 }
