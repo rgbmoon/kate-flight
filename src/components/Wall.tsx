@@ -3,6 +3,7 @@ import styles from './Wall.module.css'
 import WallPost from './WallPost'
 import { ItemsEntity, WallResponse } from '../types/typesWall'
 import { FailMessage, Preloader } from './Utils'
+import { Fade } from '@mui/material'
 
 // TODO: Заглушки, если нет фото в посте
 // TODO: Поправить сетку карточек постов на десктопе. Пока что местами криво при подгрузке данных.
@@ -63,9 +64,9 @@ function Wall() {
         {wallData.map((data) => {
           return (
             <WallPost
-              key={data.id}
-              src={data.attachments!}
-              text={data.text}
+            key={data.id}
+            src={data.attachments!}
+            text={data.text}
             />
           )
         })}
