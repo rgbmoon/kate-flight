@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import styles from './Wall.module.css'
-import WallPost from './WallPost'
-import { ItemsEntity, WallResponse } from '../types/typesWall'
-import { FailMessage, Preloader } from './Utils'
+import React, { useState, useEffect, FC } from 'react'
+import { AttachmentsEntity, ItemsEntity, WallResponse } from '../../types/typesWall'
+import { FailMessage } from '../FailMessage'
+import { Preloader } from '../Preloader'
+import { WallPost } from './components/WallPost'
+import styles from './styles.module.scss'
 
 // TODO: Заглушки, если нет фото в посте
 // TODO: Поправить сетку карточек постов на десктопе. Пока что местами криво при подгрузке данных.
+// TODO: Какое то адовое количество запросов, если запрашваиешь без интернета. Надо поправить тут и на портфолио.
 
-function Wall() {
+const Wall:FC = () => {
 
   const [wallData, setWallData] = useState<ItemsEntity[]>([])
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -16,19 +18,19 @@ function Wall() {
   const [fetchFailed, setFetchFailed] = useState(false)
   const [offset, setOffset] = useState(0)
 
-  const postsPerRequest = 5
+  const postsPerRequest = 6
 
   const fetchData = () => {
     fetch(`/.netlify/functions/vkWall?count=${postsPerRequest}&offset=${offset}`)
       .then(response => {
         if (!response.ok) {
           setFetchFailed(true)
-          throw new Error(response.status.toString());
+          throw new Error(response.status.toString())
         }
         return response.json()
       })
       .then((data: WallResponse) => {
-        setWallData([...wallData, ...data.response.items!])
+        setWallData([...wallData, ...data.response.items as ItemsEntity[]])
         setTotalPosts(data.response.count)
         setOffset(offset + postsPerRequest)
       })
@@ -54,7 +56,7 @@ function Wall() {
     if (fetching) {
       fetchData()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, [fetching])
 
   return (
@@ -63,9 +65,9 @@ function Wall() {
         {wallData.map((data) => {
           return (
             <WallPost
-            key={data.id}
-            src={data.attachments!}
-            text={data.text}
+              key={data.id}
+              src={data.attachments as AttachmentsEntity[]}
+              text={data.text}
             />
           )
         })}
@@ -76,4 +78,4 @@ function Wall() {
   )
 }
 
-export default Wall
+export { Wall }

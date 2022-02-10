@@ -1,8 +1,8 @@
-import { Fade } from '@mui/material';
-import React from 'react';
-import styles from './Contacts.module.css';
+import { Fade } from '@mui/material'
+import React, { FC } from 'react'
+import styles from './styles.module.scss'
 
-function Contacts() {
+const Contacts:FC = () => {
 
   return (
     <Fade in timeout={1000}>
@@ -17,7 +17,7 @@ function Contacts() {
         </div>
       </div>
     </Fade>
-  );
+  )
 }
 
-export default Contacts;
+export { Contacts }

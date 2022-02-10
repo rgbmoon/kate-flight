@@ -2,6 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
 
+:root {
+  --color-primary: #000000;
+  --color-accent: #ff8d8b;
+  --border-color-primary: #ff8d8b33;
+
+  --font-body-large: 300 1rem/1.5rem 'Ubuntu';
+  --font-body-medium: 400 0.875rem/1.25rem 'Ubuntu';
+  --font-subtitle-desktop: 800 1rem/1.5rem 'Ubuntu';
+  --font-subtitle-mobile: 800 0.875rem/1.25rem 'Ubuntu';
+  --font-title: 300 4rem/4.5rem 'Ubuntu';
+  --font-menu-desktop: 400 1.875rem/2rem 'Ubuntu Condensed';
+  --font-menu-mobile: 400 1.25rem/1.5rem 'Ubuntu Condensed';
+}
+
 * {
   box-sizing: border-box;
   font-family: sans-serif;
@@ -10,10 +24,7 @@
 
 html {
   overflow-y: scroll;
-}
-
-body {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 html, body, #root {
@@ -21,9 +32,8 @@ html, body, #root {
 }
 
 h1, h3, p, div, span, a, button {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 400;
-  color: #000000;
+  font: var(--font-body-medium);
+  color: var(--color-primary);
   margin: 0;
 }
 
@@ -44,4 +54,8 @@ body::-webkit-scrollbar-thumb {
   /* roundness of the scroll thumb */
   border: 3px solid #f0eff1;
   /* creates padding around scroll thumb */
+}
+
+::selection {
+  background-color: #ff8d8b33;
 }

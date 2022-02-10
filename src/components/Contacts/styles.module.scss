@@ -1,0 +1,56 @@
+@import 'src/index.scss';
+
+.wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.block{
+  position: relative;
+  width: 60%;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 0;
+
+  @include breakpoint(sm) {
+    width: 100%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 2.25rem;
+    height: 0.125rem;
+    top: 0;
+    left: 0;
+    background-color: var(--color-accent);
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 0.625rem;
+  
+}
+
+.title, .price {
+  font: var(--font-subtitle-desktop);
+
+  @include breakpoint(sm) {
+    font: var(--font-subtitle-mobile);
+  }
+}
+
+.price{
+  color: var(--color-accent);
+}
+
+.text{
+  font: var(--font-body-large);
+
+  @include breakpoint(sm) {
+    font: var(--font-body-medium);
+  }
+}

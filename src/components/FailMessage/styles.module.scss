@@ -1,0 +1,33 @@
+@import 'src/index.scss';
+
+.fail {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 0 1rem;
+
+  p {
+    font: var(--font-body-large);
+  
+    @include breakpoint(sm) {
+      font: var(--font-body-medium);
+    }
+  }
+
+  button, button:hover, button:active, button:focus {
+    text-decoration: none;
+    font: inherit;
+    color: var(--color-accent);
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+}

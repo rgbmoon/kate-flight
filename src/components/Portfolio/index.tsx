@@ -1,11 +1,12 @@
-import { Fade } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { AlbumResponse, ItemsEntity } from '../types/typesPortfolio';
-import styles from './Portfolio.module.css';
-import { Preloader, FailMessage } from './Utils'
+import { Fade } from '@mui/material'
+import React, { FC, useEffect, useState } from 'react'
+import { AlbumResponse, ItemsEntity } from '../../types/typesPortfolio'
+import { FailMessage } from '../FailMessage'
+import { Preloader } from '../Preloader'
+import styles from './styles.module.scss'
 
 
-function Portfolio() {
+const Portfolio:FC = () => {
 
   const [albumData, setAlbumData] = useState<ItemsEntity[]>([])
   const [totalPhotos, setTotalPhotos] = useState(0)
@@ -13,20 +14,19 @@ function Portfolio() {
   const [fetchFailed, setFetchFailed] = useState(false)
   const [offset, setOffset] = useState(0)
 
-  const photosPerRequest = 5
+  const photosPerRequest = 6
 
   const fetchData = () => {
     fetch(`/.netlify/functions/vkPortfolio?count=${photosPerRequest}&offset=${offset}`)
       .then(response => {
         if (!response.ok) {
           setFetchFailed(true)
-          throw new Error(response.status.toString());
+          throw new Error(response.status.toString())
         }
         return response.json()
       })
       .then((data: AlbumResponse) => {
-        setAlbumData([...albumData, ...data.response.items!])
-        console.log(data)
+        setAlbumData([...albumData, ...data.response.items as ItemsEntity[]])
         setTotalPhotos(data.response.count)
         setOffset(offset + photosPerRequest)
       })
@@ -52,7 +52,7 @@ function Portfolio() {
     if (fetching) {
       fetchData()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, [fetching])
 
   return (
@@ -61,8 +61,8 @@ function Portfolio() {
       <div className={styles.porfolio}>
         {albumData.map((photo, i) => {
           return (
-            <Fade in timeout={1000}>
-              <div className={styles.item} key={i}>
+            <Fade in timeout={1000} key={i}>
+              <div className={styles.item}>
                 <img
                   srcSet={
                     `${photo?.sizes ? photo.sizes[0].url : ''} ${photo?.sizes ? photo.sizes[0]?.width : ''}w,
@@ -87,7 +87,7 @@ function Portfolio() {
       {fetching ? <Preloader /> : null}
       {fetchFailed ? <FailMessage /> : null}
     </>
-  );
+  )
 }
 
-export default Portfolio;
+export { Portfolio }
