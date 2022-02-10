@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import SwipeableViews from 'react-swipeable-views'
 import { Fade } from '@mui/material'
 import { AttachmentsEntity } from '../../../../types/typesWall'
+import cn from 'classnames'
 
 interface wallPostProps {
   src: AttachmentsEntity[]
@@ -81,7 +82,7 @@ const WallPost:FC<wallPostProps> = ({src, text}) => {
                 ${styles.arrowLeft} 
                 ${activeStep === 0 ? styles.disabled : null}
               `}
-                ></div>
+                />
                 <div
                   onClick={handleNext}
                   className={`
@@ -89,15 +90,14 @@ const WallPost:FC<wallPostProps> = ({src, text}) => {
                 ${styles.arrowRight}
                 ${activeStep === maxSteps - 1 ? styles.disabled : null}
               `}
-                ></div>
+                />
               </div>
 
               <div className={styles.bullets}>
                 {src?.map((pos, key) => (
                   <div
                     key={key}
-                    className={key === activeStep ?
-                      `${styles.bullet} ${styles.active}` : `${styles.bullet}`}
+                    className={cn(styles.bullet, {[styles.active]: key === activeStep})}
                   />
                 ))}
               </div>
