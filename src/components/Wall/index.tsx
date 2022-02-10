@@ -38,8 +38,9 @@ const Wall:FC = () => {
       .finally(() => setFetching(false))
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const scrollHandler = (e: any) => {
-    if((e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) &&
+    if((e?.target?.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) &&
       wallData.length < totalPosts) {
       setFetching(true)
     }

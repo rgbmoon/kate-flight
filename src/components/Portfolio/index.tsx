@@ -34,6 +34,7 @@ const Portfolio:FC = () => {
       .finally(() => setFetching(false))
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const scrollHandler = (e: any) => {
     if((e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) &&
     albumData.length <= totalPhotos) {
