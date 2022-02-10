@@ -8,9 +8,10 @@ Production domain - https://kate-flight.ru/
 1) Pure React
 2) Typescript
 3) MUI for styling and some icons
-4) CSS modules(it was mistake, now I prefer SASS modules)
+4) SCSS modules
 5) Netlify deploy and lambda functions for safety data fetching
 6) React routrer 6
+7) Eslint
 
 ## Install
 

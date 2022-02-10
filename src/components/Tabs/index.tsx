@@ -1,32 +1,9 @@
-import React from 'react'
-import styles from './Tabs.module.css'
-import { NavLink } from "react-router-dom"
+import React, { FC } from 'react'
+import styles from './styles.module.scss'
 import { Fade } from '@mui/material'
-interface TabsButtonProps {
-  link: string
-  title: string
-}
+import { TabsButton } from './components'
 
-const TabsButton = (props: TabsButtonProps) => {
-
-  return (
-    <NavLink
-      to={props.link}
-      className={({ isActive }) =>
-        [
-          styles.tabsButton,
-          isActive ? styles.active : null
-        ]
-          .filter(Boolean)
-          .join(" ")
-      }
-    >
-      {props.title}
-    </NavLink >
-  )
-}
-
-function Tabs() {
+const Tabs:FC = () => {
 
   return (
     <Fade in timeout={2000}>
@@ -54,4 +31,4 @@ function Tabs() {
   )
 }
 
-export default Tabs
+export { Tabs }
