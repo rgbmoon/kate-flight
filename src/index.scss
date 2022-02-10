@@ -23,7 +23,7 @@ html, body, #root {
 h1, h3, p, div, span, a, button {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
-  color: #000000;
+  color: var(--color-primary);
   margin: 0;
 }
 
@@ -44,4 +44,20 @@ body::-webkit-scrollbar-thumb {
   /* roundness of the scroll thumb */
   border: 3px solid #f0eff1;
   /* creates padding around scroll thumb */
+}
+
+$breakpoints: (
+  xs: 575.98px,
+  sm: 767.98px,
+  md: 991.98px,
+  lg: 1199.98px,
+);
+
+@mixin breakpoint($breakpoint) {
+
+  $breakpoint-value: map-get($breakpoints, $breakpoint);
+  
+  @media (max-width: ($breakpoint-value)) {
+    @content;
+  }
 }

@@ -21,7 +21,7 @@
   height: 2px;
   top: 0;
   left: 0;
-  background-color: #ff8d8b;
+  background-color: var(--color-accent);
 }
 
 .titleWrapper {
@@ -43,7 +43,7 @@
 }
 
 .price{
-  color: #ff8d8b;
+  color: var(--color-accent);
 }
 
 .text{

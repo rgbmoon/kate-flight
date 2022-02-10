@@ -42,7 +42,7 @@ tabsButton::-moz-focus-inner {
 }
 
 .active {
-  color: #f28482;
+  color: var(--color-accent);
   transition: color 300ms ease-in-out;
 }
 .active::before {
