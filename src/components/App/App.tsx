@@ -21,17 +21,15 @@ const App:FC = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <Fade in timeout={2000}>
-            <h1 className={styles.title}>
-              kate <span className={styles.color}>flight</span>
-            </h1>
+            <div className={styles.header}>
+              <h1 className={styles.title}>
+                kate <span className={styles.color}>flight</span>
+              </h1>
+              <ModalText />
+              <Tabs />
+            </div>
           </Fade>
-          
-          <ModalText />
-
-          <Tabs />
-
           <Outlet />
-
         </div>
       </div>
     </div>
