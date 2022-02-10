@@ -1,6 +1,61 @@
+@import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+
 :root {
   --color-primary: #000000;
   --color-accent: #ff8d8b;
   --border-color-primary: #ff8d8b33;
-  --border-color-light: #ff8d8b33;
+
+  --font-body-large: 300 1rem/1.5rem 'Ubuntu';
+  --font-body-medium: 400 0.875rem/1.25rem 'Ubuntu';
+  --font-subtitle-desktop: 800 1rem/1.5rem 'Ubuntu';
+  --font-subtitle-mobile: 800 0.875rem/1.25rem 'Ubuntu';
+  --font-title: 300 4rem/4.5rem 'Ubuntu';
+  --font-menu-desktop: 400 1.875rem/2rem 'Ubuntu Condensed';
+  --font-menu-mobile: 400 1.25rem/1.5rem 'Ubuntu Condensed';
+}
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+html {
+  overflow-y: scroll;
+  font-size: 16px;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+h1, h3, p, div, span, a, button {
+  font: var(--font-body-medium);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #f0eff1;
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ababab;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #f0eff1;
+  /* creates padding around scroll thumb */
+}
+
+::selection {
+  background-color: #ff8d8b33;
 }

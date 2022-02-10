@@ -1,29 +1,32 @@
+@import 'src/index.scss';
+
 .container {
   position: relative;
-}
-.container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 20px;
-  background: rgb(171,171,171);
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 32%, rgba(255,255,255,1) 93%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1.25rem;
+    background: rgb(171,171,171);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 32%, rgba(255,255,255,1) 93%);
+  }
 }
 
 .tabsWrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   overflow: scroll;
-}
-@media (max-width: 768px) {
-  .tabsWrapper {
+
+  @include breakpoint(sm) {
     justify-content: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
   }
-}
-.tabsWrapper::-webkit-scrollbar {
-  display: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

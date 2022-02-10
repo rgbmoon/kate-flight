@@ -1,76 +1,45 @@
+@import 'src/index.scss';
+
 .modalText {
   position: relative;
-  margin-bottom: 40px;
-  padding: 10px 15px;
+  margin-bottom: 2.5rem;
+  padding: 0.75rem 1rem;
   text-align: center;
-  border: 1px solid #ff8d8b33;
-}
-@media (max-width: 768px) {
-  .modalText {
-    text-align: left;
-    margin-bottom: 15px;
-    border-top: 1px solid #ff8d8b33;
-    border-bottom: 1px solid #ff8d8b33;
-    padding: 10px 15px;
-  }
-}
+  border: 1px solid var(--border-color-primary);
 
-.modalTextClosed{
-  cursor: pointer;
+  @include breakpoint(sm) {
+    text-align: left;
+    margin-bottom: 1rem;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color-primary);
+    padding: 0.75rem 1rem;
+  }
 }
 
 .text {
-  font-size: 19px;
-  line-height: 24px;
-  font-weight: 300;
-  padding-right: 30px;
+  font: var(--font-body-large);
+  padding-right: 2rem;
   position: relative;
-}
-@media (max-width: 768px) {
-  .text {
-    font-size: 14px;
-    line-height: 19px;
-    font-weight: 400;
-  }
-}
 
-.textHidden {
-  overflow: hidden;
-  /* white-space: nowrap;
-  text-overflow: ellipsis; */
-}
-
-.textHidden::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 20px;
-  width: 15%;
-  height: 20px;
-  background: rgb(171,171,171);
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 32%, rgba(255,255,255,1) 93%);
-}
-@media (max-width: 992px) {
-  .textHidden::after {
-    width: 25%;
+  @include breakpoint(sm) {
+    font: var(--font-body-medium);
   }
 }
 
 .close {
-  width: 40px;
-  height: 40px;
-  color: var(--color-accent);
   position: absolute;
-  top: 10px;
-  right: 10px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -webkit-font-smoothing: inherit;
-  -moz-osx-font-smoothing: inherit;
-  -webkit-tap-highlight-color: transparent;
-  background-color: transparent;
-  outline: 0;
-  border: 0;
-  margin: 0;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-accent);
   cursor: pointer;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
 }
