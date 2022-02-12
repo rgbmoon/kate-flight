@@ -6,13 +6,12 @@ import { Fade } from '@mui/material'
 import { AttachmentsEntity } from '../../../../types/typesWall'
 import cn from 'classnames'
 
-interface wallPostProps {
+interface WallPostProps {
   src: AttachmentsEntity[]
   text: string
 }
 
-// TODO: пофиксить отступ у текста не мобиле
-const WallPost:FC<wallPostProps> = ({src, text}) => {
+const WallPost:FC<WallPostProps> = ({src, text}) => {
   const [activeStep, setActiveStep] = useState(0)
   const maxSteps = src?.length
 
@@ -65,7 +64,7 @@ const WallPost:FC<wallPostProps> = ({src, text}) => {
                           }
                           src={photo?.sizes ? photo?.sizes[8]?.url : ''}
                           className={styles.wallImg}
-                          alt="Последние события"
+                          alt="Kate Flight"
                           loading="lazy"
                         />
                       )}
