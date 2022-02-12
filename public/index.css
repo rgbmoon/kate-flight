@@ -6,6 +6,7 @@
   --color-primary: #000000;
   --color-accent: #ff8d8b;
   --border-color-primary: #ff8d8b33;
+  --background-color-default: #ffffff;
 
   --font-body-large: 300 1rem/1.5rem 'Ubuntu';
   --font-body-medium: 400 0.875rem/1.25rem 'Ubuntu';
@@ -29,6 +30,7 @@ html {
 
 html, body, #root {
   height: 100%;
+  background-color: var(--background-color-default);
 }
 
 h1, h3, p, div, span, a, button {

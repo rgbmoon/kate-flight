@@ -31,27 +31,10 @@
 
 .content {
   flex: 1 0 auto;
-}
-
-.header {
-  
-}
-
-.title {
-  font: var(--font-title);
-  text-align: center;
-  margin: 2rem 0;
-  cursor: default;
-
-  span {
-    font: inherit;
-    color: var(--color-accent);
-    transition: color 500ms;
-  }
+  margin-top: 10.25rem;
 
   @include breakpoint(sm) {
-    padding-left: 1rem;
-    text-align: left;
-    margin: 0.75rem 0;
+    margin-top: 8.5rem;
   }
 }
+

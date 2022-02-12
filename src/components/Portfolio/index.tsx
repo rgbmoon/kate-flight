@@ -20,6 +20,7 @@ const Portfolio:FC = () => {
     fetch(`/.netlify/functions/vkPortfolio?count=${photosPerRequest}&offset=${offset}`)
       .then(response => {
         if (!response.ok) {
+          setFetching(false)
           setFetchFailed(true)
           throw new Error(response.status.toString())
         }
@@ -34,6 +35,7 @@ const Portfolio:FC = () => {
       .finally(() => setFetching(false))
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const scrollHandler = (e: any) => {
     if((e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) &&
     albumData.length <= totalPhotos) {

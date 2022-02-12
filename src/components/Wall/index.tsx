@@ -5,10 +5,6 @@ import { Preloader } from '../Preloader'
 import { WallPost } from './components/WallPost'
 import styles from './styles.module.scss'
 
-// TODO: Заглушки, если нет фото в посте
-// TODO: Поправить сетку карточек постов на десктопе. Пока что местами криво при подгрузке данных.
-// TODO: Какое то адовое количество запросов, если запрашваиешь без интернета. Надо поправить тут и на портфолио.
-
 const Wall:FC = () => {
 
   const [wallData, setWallData] = useState<ItemsEntity[]>([])
@@ -23,6 +19,7 @@ const Wall:FC = () => {
     fetch(`/.netlify/functions/vkWall?count=${postsPerRequest}&offset=${offset}`)
       .then(response => {
         if (!response.ok) {
+          setFetching(false)
           setFetchFailed(true)
           throw new Error(response.status.toString())
         }
@@ -37,6 +34,7 @@ const Wall:FC = () => {
       .finally(() => setFetching(false))
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const scrollHandler = (e: any) => {
     if((e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) &&
       wallData.length < totalPosts) {
