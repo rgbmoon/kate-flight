@@ -1,4 +1,4 @@
-import { AppBar, Fade, useScrollTrigger } from '@mui/material'
+import { AppBar, Fade } from '@mui/material'
 import React, { FC } from 'react'
 import styles from './styles.module.scss'
 import { Tabs } from './components/Tabs'
