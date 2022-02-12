@@ -20,6 +20,7 @@ const Portfolio:FC = () => {
     fetch(`/.netlify/functions/vkPortfolio?count=${photosPerRequest}&offset=${offset}`)
       .then(response => {
         if (!response.ok) {
+          setFetching(false)
           setFetchFailed(true)
           throw new Error(response.status.toString())
         }

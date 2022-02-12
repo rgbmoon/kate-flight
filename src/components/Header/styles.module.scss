@@ -1,0 +1,25 @@
+@import 'src/index.scss';
+
+.appBarRoot {
+  background-color: var(--background-color-default);
+  box-shadow: none;
+}
+
+.title {
+  font: var(--font-title);
+  text-align: center;
+  margin-top: 1.25rem;
+  cursor: default;
+
+  span {
+    font: inherit;
+    color: var(--color-accent);
+    transition: color 500ms;
+  }
+
+  @include breakpoint(sm) {
+    padding-left: 1rem;
+    text-align: left;
+    margin-top: 0.75rem;
+  }
+}
