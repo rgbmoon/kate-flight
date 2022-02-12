@@ -1,29 +1,74 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styles from './styles.module.scss'
-import { TabsButton } from './components/TabsButton'
+import { Tab } from '@mui/material'
+import { Tabs as MUITabs} from '@mui/material'
+import { Link, useLocation } from 'react-router-dom'
 
 const Tabs:FC = () => {
+  const route = useLocation()
+  const [value, setValue] = useState(route.pathname)
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue)
+  }
 
   return (
-    <div className={styles.container}>
-      <div className={styles.tabsWrapper}>
-        <TabsButton
-          title="События"
-          link="/home"
+    <div className={styles.tabsWrapper}>
+      <MUITabs
+        value={value}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons='auto'
+        classes={{
+          root: styles.tabsRoot,
+          indicator: styles.tabsIndicator,
+        }}
+      >
+        <Tab 
+          label="События" 
+          value='/home' 
+          to="/home" 
+          component={Link}
+          disableRipple
+          classes={{
+            root: styles.tabRoot,
+            selected: styles.tabActive,
+          }}
         />
-        <TabsButton
-          title="Портфолио"
-          link="/portfolio"
+        <Tab 
+          label="Портфолио" 
+          value='/portfolio' 
+          to="/portfolio" 
+          component={Link}
+          disableRipple 
+          classes={{
+            root: styles.tabRoot,
+            selected: styles.tabActive,
+          }}
         />
-        <TabsButton
-          title="Стоимость"
-          link="/price"
+        <Tab 
+          label="Стоимость" 
+          value='/price' 
+          to="/price" 
+          component={Link}
+          disableRipple 
+          classes={{
+            root: styles.tabRoot,
+            selected: styles.tabActive,
+          }}
         />
-        <TabsButton
-          title="Контакты"
-          link="/contacts"
+        <Tab 
+          label="Контакты" 
+          value='/contacts' 
+          to="/contacts" 
+          component={Link}
+          disableRipple 
+          classes={{
+            root: styles.tabRoot,
+            selected: styles.tabActive,
+          }}
         />
-      </div>
+      </MUITabs>
     </div>
   )
 }

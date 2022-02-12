@@ -6,7 +6,7 @@ import cn from 'classnames'
 
 const Header:FC = () => {
   return(
-    <Fade in timeout={1000}>
+    <Fade in timeout={2000}>
       <AppBar 
         position='fixed' 
         classes={{root: cn(styles.appBarRoot, )}}>

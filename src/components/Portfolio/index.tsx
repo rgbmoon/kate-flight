@@ -58,7 +58,6 @@ const Portfolio:FC = () => {
   }, [fetching])
 
   return (
-    //TODO Оформить компонент красиво на десктопе и на мобиле, например как ImageList mui
     <>
       <div className={styles.porfolio}>
         {albumData.map((photo, i) => {
