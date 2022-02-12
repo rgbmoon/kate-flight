@@ -14,7 +14,7 @@ const Portfolio:FC = () => {
   const [fetchFailed, setFetchFailed] = useState(false)
   const [offset, setOffset] = useState(0)
 
-  const photosPerRequest = 6
+  const photosPerRequest = 9
 
   const fetchData = () => {
     fetch(`/.netlify/functions/vkPortfolio?count=${photosPerRequest}&offset=${offset}`)
@@ -78,7 +78,7 @@ const Portfolio:FC = () => {
                     ${photo?.sizes ? photo.sizes[8].url : ''} ${photo?.sizes ? photo.sizes[8]?.width : ''}w,`
                   }
                   src={photo?.sizes ? photo?.sizes[8]?.url : ''}
-                  alt="Портфолио"
+                  alt="Kate Flight Portfolio"
                   loading="lazy"
                 />
               </div>

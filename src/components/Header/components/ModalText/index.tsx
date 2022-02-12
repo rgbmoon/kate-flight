@@ -5,7 +5,9 @@ import Collapse from '@mui/material/Collapse'
 import CloseIcon from '@mui/icons-material/Close'
 
 
-/* Можно заменить sessionStorage на LocalStorage, если потребуется, 
+// Временно отключен за ненадобностью
+
+/* Можно заменить sessionStorage на LocalStorage и обратно, если потребуется, 
 методы у них одинаковые */
 
 const ModalText:FC = () => {

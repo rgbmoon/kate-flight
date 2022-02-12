@@ -6,7 +6,7 @@
 }
 
 .title {
-  font: var(--font-title);
+  font: var(--font-title-desktop);
   text-align: center;
   margin-top: 1.25rem;
   cursor: default;
@@ -18,6 +18,7 @@
   }
 
   @include breakpoint(sm) {
+    font: var(--font-title-mobile);
     padding-left: 1rem;
     text-align: left;
     margin-top: 0.75rem;

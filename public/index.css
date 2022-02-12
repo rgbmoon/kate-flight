@@ -12,7 +12,8 @@
   --font-body-medium: 400 0.875rem/1.25rem 'Ubuntu';
   --font-subtitle-desktop: 800 1rem/1.5rem 'Ubuntu';
   --font-subtitle-mobile: 800 0.875rem/1.25rem 'Ubuntu';
-  --font-title: 300 4rem/4.5rem 'Ubuntu';
+  --font-title-desktop: 300 4rem/4.5rem 'Ubuntu';
+  --font-title-mobile: 300 3.5rem/4rem 'Ubuntu';
   --font-menu-desktop: 400 1.875rem/2rem 'Ubuntu Condensed';
   --font-menu-mobile: 400 1.25rem/1.5rem 'Ubuntu Condensed';
 }
